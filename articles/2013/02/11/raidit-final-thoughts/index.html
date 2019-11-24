@@ -52,39 +52,35 @@
 
 <p>One of the easier mistakes to make when working with mocks is mocking implementation instead of behavior. I&rsquo;ve seen a lot of code that makes this mistake, and it is frustrating to work with. One small change to the code, without changing behavior, breaks multiple tests and updating those tests is tedious and unproductive. I&rsquo;ll give an example of this kind of mocking, and how to fix it. Take the following method and test:</p>
 
-<pre><code data-language="ruby">
-def some_action
-  @models = MyModel.where(:active => true).order(:name).limit(10)
-end
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">some_action</span>
+  @models <span style="color:#f92672">=</span> <span style="color:#66d9ef">MyModel</span><span style="color:#f92672">.</span>where(<span style="color:#e6db74">:active</span> <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">true</span>)<span style="color:#f92672">.</span>order(<span style="color:#e6db74">:name</span>)<span style="color:#f92672">.</span>limit(<span style="color:#ae81ff">10</span>)
+<span style="color:#66d9ef">end</span>
 
-def test_some_action
-  where_mock = mock
-  order_mock = mock
-  limit_mock = mock
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_some_action</span>
+  where_mock <span style="color:#f92672">=</span> mock
+  order_mock <span style="color:#f92672">=</span> mock
+  limit_mock <span style="color:#f92672">=</span> mock
  
-  where_mock.expects(:order).with(:name).returns(order_mock)
-  order_mock.expects(:limit).with(10).returns(limit_mock)
-  MyModel.expects(:where).with(:active => true).returns(where_mock)
+  where_mock<span style="color:#f92672">.</span>expects(<span style="color:#e6db74">:order</span>)<span style="color:#f92672">.</span>with(<span style="color:#e6db74">:name</span>)<span style="color:#f92672">.</span>returns(order_mock)
+  order_mock<span style="color:#f92672">.</span>expects(<span style="color:#e6db74">:limit</span>)<span style="color:#f92672">.</span>with(<span style="color:#ae81ff">10</span>)<span style="color:#f92672">.</span>returns(limit_mock)
+  <span style="color:#66d9ef">MyModel</span><span style="color:#f92672">.</span>expects(<span style="color:#e6db74">:where</span>)<span style="color:#f92672">.</span>with(<span style="color:#e6db74">:active</span> <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">true</span>)<span style="color:#f92672">.</span>returns(where_mock)
   
-  get :some_action
+  get <span style="color:#e6db74">:some_action</span>
   
-  assigns(:models).should == limit_mock
-end
-</code></pre>
+  assigns(<span style="color:#e6db74">:models</span>)<span style="color:#f92672">.</span>should <span style="color:#f92672">==</span> limit_mock
+<span style="color:#66d9ef">end</span></code></pre></div>
 
 <p>There is nothing here to show intent. This only tests implementation, any single change breaks the entire test even though the behavior may not change at all (for example, swapping the order and limit calls), and the test is very hard to read. This code and test is easily fixed up while still using mocks and staying away from database objects by using an Intent-Revealing Name (nothing is more important than <a href="/articles/2012/10/01/naming-is-everything">good naming</a>). Simply refactor that scope mess into it&rsquo;s own method and mock that one method.</p>
 
-<pre><code data-language="ruby">
-def some_action
-  @models = MyModel.active_sorted_by_name(10)
-end
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">some_action</span>
+  @models <span style="color:#f92672">=</span> <span style="color:#66d9ef">MyModel</span><span style="color:#f92672">.</span>active_sorted_by_name(<span style="color:#ae81ff">10</span>)
+<span style="color:#66d9ef">end</span>
 
-def test_some_action
-  MyModel.expects(:active_sorted_by_name).with(10).returns([])
-  get :some_action
-  assigns(:models).should == []
-end
-</code></pre>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_some_action</span>
+  <span style="color:#66d9ef">MyModel</span><span style="color:#f92672">.</span>expects(<span style="color:#e6db74">:active_sorted_by_name</span>)<span style="color:#f92672">.</span>with(<span style="color:#ae81ff">10</span>)<span style="color:#f92672">.</span>returns(<span style="color:#f92672">[]</span>)
+  get <span style="color:#e6db74">:some_action</span>
+  assigns(<span style="color:#e6db74">:models</span>)<span style="color:#f92672">.</span>should <span style="color:#f92672">==</span> <span style="color:#f92672">[]</span>
+<span style="color:#66d9ef">end</span></code></pre></div>
 
 <p>Now the code shows it&rsquo;s intent, the tests show and prove behavior, and any changes made to <code>active_sorted_by_name</code> won&rsquo;t cause the test to fail. Testing the behavior of this new method can then be done with actual database objects and in one place only, minimizing the speed impact on the full suite.</p>
 

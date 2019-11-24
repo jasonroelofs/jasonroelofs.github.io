@@ -52,21 +52,17 @@
 
 <p>Even the simplest methods are exponentially more understandable with good naming. Take a copy method, which is easier to read?</p>
 
-<pre><code data-language="ruby">
-  def copy(x, y)
-    x.member1 = y.member1
-    x.member2 = y.member2
-  end
-</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">copy</span>(x, y)
+  x<span style="color:#f92672">.</span>member1 <span style="color:#f92672">=</span> y<span style="color:#f92672">.</span>member1
+  x<span style="color:#f92672">.</span>member2 <span style="color:#f92672">=</span> y<span style="color:#f92672">.</span>member2
+<span style="color:#66d9ef">end</span></code></pre></div>
 
 <p>vs</p>
 
-<pre><code data-language="ruby">
-  def copy(from, to)
-    to.member1 = from.member1
-    to.member2 = from.member2
-  end
-</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">copy</span>(from, to)
+  to<span style="color:#f92672">.</span>member1 <span style="color:#f92672">=</span> from<span style="color:#f92672">.</span>member1
+  to<span style="color:#f92672">.</span>member2 <span style="color:#f92672">=</span> from<span style="color:#f92672">.</span>member2
+<span style="color:#66d9ef">end</span></code></pre></div>
 
 <p>A simple set of names makes the method immediately and completely descriptive without even looking at the implementation. It&rsquo;s copying data from the object at <em>from</em> to the object at <em>to</em>. With the nondescript <em>x</em> and <em>y</em> parameters we have to look at the implementation to know which one is copying to and from where. Taking the care, the few seconds or few minutes to write out the variables in full, to name your objects descriptively, to make sure the code is readable, will pay off in spades. Spending ten minutes now will save the next developer potentially hours of maintenance work.</p>
 
@@ -92,33 +88,29 @@
 
 <p>Now this may come across as an odd section given my focus on Ruby, but a constructor is nothing more than a method that builds and returns a new object. In Ruby&rsquo;s case, any static method that returns an instance of the class said method resides in can be considered a constructor. For example, take the following class with a few named constructors:</p>
 
-<pre><code data-language="ruby">
-class ListMessages
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ListMessages</span>
 
-  def self.received_by(user)
-    new(:received, user)
-  end
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">self</span><span style="color:#f92672">.</span><span style="color:#a6e22e">received_by</span>(user)
+    <span style="color:#66d9ef">new</span>(<span style="color:#e6db74">:received</span>, user)
+  <span style="color:#66d9ef">end</span>
 
-  def self.sent_to(user)
-    new(:sent, user)
-  end
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">self</span><span style="color:#f92672">.</span><span style="color:#a6e22e">sent_to</span>(user)
+    <span style="color:#66d9ef">new</span>(<span style="color:#e6db74">:sent</span>, user)
+  <span style="color:#66d9ef">end</span>
 
-  def initialize(sent_or_received, user)
-    @messages = Message.send("#{sent_or_received}_by", user)
-  end
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">initialize</span>(sent_or_received, user)
+    @messages <span style="color:#f92672">=</span> <span style="color:#66d9ef">Message</span><span style="color:#f92672">.</span>send(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>sent_or_received<span style="color:#e6db74">}</span><span style="color:#e6db74">_by&#34;</span>, user)
+  <span style="color:#66d9ef">end</span>
 
-end
-</code></pre>
+<span style="color:#66d9ef">end</span></code></pre></div>
 
 <p>Then compare the code to run them</p>
 
-<pre><code data-language="ruby">
-messages = ListMessages.sent_to(user)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">messages <span style="color:#f92672">=</span> <span style="color:#66d9ef">ListMessages</span><span style="color:#f92672">.</span>sent_to(user)
 
-# vs
+<span style="color:#75715e"># vs</span>
 
-messages = ListMessages.new(:sent, user)
-</code></pre>
+messages <span style="color:#f92672">=</span> <span style="color:#66d9ef">ListMessages</span><span style="color:#f92672">.</span>new(<span style="color:#e6db74">:sent</span>, user)</code></pre></div>
 
 <p>The differences are subtle but noticable. The first one reads more like a sentance, a statement of intent, while the second requires you to understand that you need to pass in a symbol stating which type of Message you want for the given user. When code tells you it&rsquo;s intent without getting you bogged down in the implementation details, then you know you have good naming and are progressing towards better overall design.</p>
 

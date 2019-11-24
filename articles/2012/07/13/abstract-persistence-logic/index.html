@@ -38,60 +38,52 @@
 
 <p>The first implementation, and the implementation that raidit currently uses, consists of a single, simple object to map models to the appropriate repository implementation. As you can see here, this object is nothing more than a few helper methods on top of a Hash:</p>
 
-<pre><code data-language="ruby">
-class Repository
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Repository</span>
 
-  ##
-  # Add mapping(s) to this repository. This will add to the existing known
-  # set of mappings. To start the mapping list anew, use +.reset!+ first.
-  ##
-  def self.configure(options = {})
-    @mappings ||= {}
-    @mappings.merge!(options)
-  end
+  <span style="color:#75715e">##</span>
+  <span style="color:#75715e"># Add mapping(s) to this repository. This will add to the existing known</span>
+  <span style="color:#75715e"># set of mappings. To start the mapping list anew, use +.reset!+ first.</span>
+  <span style="color:#75715e">##</span>
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">self</span><span style="color:#f92672">.</span><span style="color:#a6e22e">configure</span>(options <span style="color:#f92672">=</span> {})
+    @mappings <span style="color:#f92672">||=</span> {}
+    @mappings<span style="color:#f92672">.</span>merge!(options)
+  <span style="color:#66d9ef">end</span>
 
-  ##
-  # Clear out all known mappings
-  ##
-  def self.reset!
-    @mappings = {}
-  end
+  <span style="color:#75715e">##</span>
+  <span style="color:#75715e"># Clear out all known mappings</span>
+  <span style="color:#75715e">##</span>
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">self</span><span style="color:#f92672">.</span><span style="color:#a6e22e">reset!</span>
+    @mappings <span style="color:#f92672">=</span> {}
+  <span style="color:#66d9ef">end</span>
 
-  ##
-  # Find the defined mapping for the given Domain Model class
-  ##
-  def self.for(model_class_or_name)
-    @mappings[model_class_or_name] || @mappings[model_class_or_name.to_s]
-  end
+  <span style="color:#75715e">##</span>
+  <span style="color:#75715e"># Find the defined mapping for the given Domain Model class</span>
+  <span style="color:#75715e">##</span>
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">self</span><span style="color:#f92672">.</span><span style="color:#a6e22e">for</span>(model_class_or_name)
+    @mappings<span style="color:#f92672">[</span>model_class_or_name<span style="color:#f92672">]</span> <span style="color:#f92672">||</span> @mappings<span style="color:#f92672">[</span>model_class_or_name<span style="color:#f92672">.</span>to_s<span style="color:#f92672">]</span>
+  <span style="color:#66d9ef">end</span>
 
-end
-</code></pre>
+<span style="color:#66d9ef">end</span></code></pre></div>
 
 <p>It&rsquo;s usage is simple. First define how the classes map to their persistence:</p>
 
-<pre><code data-language="ruby">
-  Repository.configure(
-    "User"        => InMemory::UserRepo.new
-  )
-</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">  <span style="color:#66d9ef">Repository</span><span style="color:#f92672">.</span>configure(
+    <span style="color:#e6db74">&#34;User&#34;</span>        <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">InMemory</span><span style="color:#f92672">::</span><span style="color:#66d9ef">UserRepo</span><span style="color:#f92672">.</span>new
+  )</code></pre></div>
 
 <p>then request the persistence object whenever persistence is needed:</p>
 
-<pre><code data-language="ruby">
-  user = User.new
-  Repository.for(User).save user
-</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">  user <span style="color:#f92672">=</span> <span style="color:#66d9ef">User</span><span style="color:#f92672">.</span>new
+  <span style="color:#66d9ef">Repository</span><span style="color:#f92672">.</span>for(<span style="color:#66d9ef">User</span>)<span style="color:#f92672">.</span>save user</code></pre></div>
 
 <p>An alternate implementation that&rsquo;s arguably more Ruby-esque is to simply set constants to the implementations, using those constants directly as needed, like so:</p>
 
-<pre><code data-language="ruby">
-  UserRepository = InMemory::UserRepo.new
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">  <span style="color:#66d9ef">UserRepository</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">InMemory</span><span style="color:#f92672">::</span><span style="color:#66d9ef">UserRepo</span><span style="color:#f92672">.</span>new
 
-  ...
+  <span style="color:#f92672">...</span>
 
-  user = User.new
-  UserRepository.save user
-</code></pre>
+  user <span style="color:#f92672">=</span> <span style="color:#66d9ef">User</span><span style="color:#f92672">.</span>new
+  <span style="color:#66d9ef">UserRepository</span><span style="color:#f92672">.</span>save user</code></pre></div>
 
 <p>Both setups have a number of benefits outside of the decoupling of persistence. Having this intermediate layer allows having multiple different implementations of persistence, even to the point of communicating with multiple different databases at the same time if so required. This layer also ensures that the models themselves know nothing about the persistence implementation, so I can be sure that there is no leakage of responsibilities.</p>
 
