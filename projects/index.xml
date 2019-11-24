@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Jason Roelofs</title>
+    <link>https://jasonroelofs.com/projects/</link>
+    <description>Recent content in Projects on Jason Roelofs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Nov 2019 14:56:19 -0400</lastBuildDate>
+    
+	<atom:link href="https://jasonroelofs.com/projects/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dotfiles</title>
+      <link>https://jasonroelofs.com/projects/dotfiles/</link>
+      <pubDate>Fri, 01 Nov 2019 13:54:20 -0400</pubDate>
+      
+      <guid>https://jasonroelofs.com/projects/dotfiles/</guid>
+      <description>My development environment! Contains configurations for bash, my prompt, git, and vim.</description>
+    </item>
+    
+    <item>
+      <title>Rice</title>
+      <link>https://jasonroelofs.com/projects/rice/</link>
+      <pubDate>Fri, 01 Nov 2019 14:24:26 -0400</pubDate>
+      
+      <guid>https://jasonroelofs.com/projects/rice/</guid>
+      <description>Ruby Interface for C++ Extensions. Expose your C++ classes to Ruby through a simple DSL.</description>
+    </item>
+    
+    <item>
+      <title>rbgccxml</title>
+      <link>https://jasonroelofs.com/projects/rbgccxml/</link>
+      <pubDate>Fri, 01 Nov 2019 14:53:24 -0400</pubDate>
+      
+      <guid>https://jasonroelofs.com/projects/rbgccxml/</guid>
+      <description>Ruby library to parse and query C++ header files using CastXML (previously named GCCXML).</description>
+    </item>
+    
+    <item>
+      <title>rb&#43;&#43;</title>
+      <link>https://jasonroelofs.com/projects/rbplusplus/</link>
+      <pubDate>Fri, 01 Nov 2019 14:52:15 -0400</pubDate>
+      
+      <guid>https://jasonroelofs.com/projects/rbplusplus/</guid>
+      <description>Combines rbgccxml and rice to automatically generate Ruby extensions from C++ code.</description>
+    </item>
+    
+    <item>
+      <title>Raidit</title>
+      <link>https://jasonroelofs.com/projects/raidit/</link>
+      <pubDate>Fri, 01 Nov 2019 14:56:19 -0400</pubDate>
+      
+      <guid>https://jasonroelofs.com/projects/raidit/</guid>
+      <description>Building an MMO focused calendar tool for scheduling player, guild, or server events as an experiment in applying different patterns to Rails web-app development. See the Designing a Rails Application series for the accompaning articles.</description>
+    </item>
+    
+    <item>
+      <title>SimpleAWS</title>
+      <link>https://jasonroelofs.com/projects/simple_aws/</link>
+      <pubDate>Fri, 01 Nov 2019 14:34:59 -0400</pubDate>
+      
+      <guid>https://jasonroelofs.com/projects/simple_aws/</guid>
+      <description>Deprecated Small, simple, and forward compatible AWS communication library.</description>
+    </item>
+    
+  </channel>
+</rss>

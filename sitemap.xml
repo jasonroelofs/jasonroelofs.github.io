@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://jasonroelofs.com/talks/keeping_ops_happy/</loc>
+    <lastmod>2019-11-01T15:10:17-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/projects/dotfiles/</loc>
+    <lastmod>2019-11-01T13:54:20-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/series/christianity/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/projects/rice/</loc>
+    <lastmod>2019-11-01T14:24:26-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/series/designing_a_rails_application/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/projects/rbgccxml/</loc>
+    <lastmod>2019-11-01T14:53:24-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/projects/rbplusplus/</loc>
+    <lastmod>2019-11-01T14:52:15-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/projects/raidit/</loc>
+    <lastmod>2019-11-01T14:56:19-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/projects/simple_aws/</loc>
+    <lastmod>2019-11-01T14:34:59-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/</loc>
+    <lastmod>2019-11-01T15:10:17-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/talks/</loc>
+    <lastmod>2019-11-01T15:10:17-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/projects/</loc>
+    <lastmod>2019-11-01T14:56:19-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/</loc>
+    <lastmod>2018-01-22T09:05:18-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2018/01/22/life-part-1/</loc>
+    <lastmod>2018-01-22T09:05:18-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2017/07/24/homosexuality/</loc>
+    <lastmod>2017-07-24T12:55:19-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2017/05/02/the-bible/</loc>
+    <lastmod>2017-05-02T10:48:44-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2017/03/13/love-the-sinner-hate-the-sin/</loc>
+    <lastmod>2017-03-13T17:50:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2017/03/01/evil-and-sin/</loc>
+    <lastmod>2017-03-01T17:15:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2017/02/13/a-christian/</loc>
+    <lastmod>2017-02-13T14:07:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2017/01/26/christianity/</loc>
+    <lastmod>2017-01-26T19:42:35-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2013/10/08/managing-resque-with-upstart/</loc>
+    <lastmod>2013-10-08T12:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2013/02/11/raidit-final-thoughts/</loc>
+    <lastmod>2013-02-11T12:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2013/01/28/implementing-persistence/</loc>
+    <lastmod>2013-01-28T12:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2012/10/01/naming-is-everything/</loc>
+    <lastmod>2012-10-01T12:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2012/07/13/abstract-persistence-logic/</loc>
+    <lastmod>2012-07-13T12:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2012/05/29/designing-a-rails-app-part-1/</loc>
+    <lastmod>2012-05-29T12:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2012/03/12/manage-and-monitor-resque-with-upstart-and-monit/</loc>
+    <lastmod>2012-05-29T12:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2012/06/05/rules-for-rails-app-development/</loc>
+    <lastmod>2012-05-29T12:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/series/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/tags/</loc>
+  </url>
+  
+</urlset>
