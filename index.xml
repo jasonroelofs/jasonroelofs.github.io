@@ -13,10 +13,10 @@
     
     <item>
       <title>Designing for Production: Keeping Ops Happy</title>
-      <link>https://jasonroelofs.github.io/talks/keeping_ops_happy/</link>
+      <link>https://jasonroelofs.github.io/talks/keeping-ops-happy/</link>
       <pubDate>Fri, 01 Nov 2019 15:10:17 -0400</pubDate>
       
-      <guid>https://jasonroelofs.github.io/talks/keeping_ops_happy/</guid>
+      <guid>https://jasonroelofs.github.io/talks/keeping-ops-happy/</guid>
       <description>I gave a talk at Mountain West Ruby Conf entitled &amp;ldquo;Keep Ops Happy: Designing for Production&amp;rdquo;, a discussion of tips, tricks, and suggestions for how to design an application in a way that makes it easy to deploy and maintain in a production environment.
 The slides:
  And the video:
@@ -52,10 +52,10 @@ The slides:
     
     <item>
       <title>Designing A Rails Application</title>
-      <link>https://jasonroelofs.github.io/series/designing_a_rails_application/</link>
+      <link>https://jasonroelofs.github.io/series/designing-a-rails-application/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jasonroelofs.github.io/series/designing_a_rails_application/</guid>
+      <guid>https://jasonroelofs.github.io/series/designing-a-rails-application/</guid>
       <description>An experiment in alternative code organization when building a Rails application.</description>
     </item>
     

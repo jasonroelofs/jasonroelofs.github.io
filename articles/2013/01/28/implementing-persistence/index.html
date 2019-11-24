@@ -26,7 +26,7 @@
 
 
 
-<p>In <a href="/2012/07/13/abstract_persistence_logic">Part 3</a> of this series of posts I talked about abstracting persistence layers and the various patterns used, as well as showing the pattern I built into <a href="http://github.com/jasonroelofs/raidit">raidit</a>. I&rsquo;ve now built the ActiveRecord-based Repository implementation, thus finishing raidit, so now it&rsquo;s time to talk about how this went, what I learned, and if this pattern is a good model for future projects.</p>
+<p>In <a href="/articles/2012/07/13/abstract_persistence_logic">Part 3</a> of this series of posts I talked about abstracting persistence layers and the various patterns used, as well as showing the pattern I built into <a href="http://github.com/jasonroelofs/raidit">raidit</a>. I&rsquo;ve now built the ActiveRecord-based Repository implementation, thus finishing raidit, so now it&rsquo;s time to talk about how this went, what I learned, and if this pattern is a good model for future projects.</p>
 
 <p>The resulting implementation can be seen in <a href="https://github.com/jasonroelofs/raidit/blob/master/app/repositories/active_record_repo.rb">app/repositories/active_record_repo.rb</a>.</p>
 
@@ -88,7 +88,7 @@ end
 
 <p>In explicitly taking the other extreme from ActiveRecord coupling everywhere, I&rsquo;ve learned a lot more about what not to do and how to find a good middle ground when dealing with serialization / persistence. Use objects and/or methods to hide implementation details (like ActiveRecord scopes and ARel). This gives you names which provide meaning and intent in your code and give you the hooks to start building fast tests and improve your overall design.</p>
 
-<p>I&rsquo;ll have one more post in this series that takes the development rules I set for myself in <a href="/2012/06/05/rules-for-rails-app-development">Rules for Rails App Development</a> and lists out which ones are good, which ones didn&rsquo;t work out, and overall thoughts on this experiment.</p>
+<p>I&rsquo;ll have one more post in this series that takes the development rules I set for myself in <a href="/articles/2012/06/05/rules-for-rails-app-development">Rules for Rails App Development</a> and lists out which ones are good, which ones didn&rsquo;t work out, and overall thoughts on this experiment.</p>
 
 <hr />
 

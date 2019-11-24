@@ -21,10 +21,10 @@
     
     <item>
       <title>Designing A Rails Application</title>
-      <link>https://jasonroelofs.github.io/series/designing_a_rails_application/</link>
+      <link>https://jasonroelofs.github.io/series/designing-a-rails-application/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jasonroelofs.github.io/series/designing_a_rails_application/</guid>
+      <guid>https://jasonroelofs.github.io/series/designing-a-rails-application/</guid>
       <description>An experiment in alternative code organization when building a Rails application.</description>
     </item>
     
