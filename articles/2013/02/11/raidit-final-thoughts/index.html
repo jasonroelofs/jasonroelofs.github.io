@@ -60,13 +60,13 @@
   where_mock <span style="color:#f92672">=</span> mock
   order_mock <span style="color:#f92672">=</span> mock
   limit_mock <span style="color:#f92672">=</span> mock
- 
+
   where_mock<span style="color:#f92672">.</span>expects(<span style="color:#e6db74">:order</span>)<span style="color:#f92672">.</span>with(<span style="color:#e6db74">:name</span>)<span style="color:#f92672">.</span>returns(order_mock)
   order_mock<span style="color:#f92672">.</span>expects(<span style="color:#e6db74">:limit</span>)<span style="color:#f92672">.</span>with(<span style="color:#ae81ff">10</span>)<span style="color:#f92672">.</span>returns(limit_mock)
   <span style="color:#66d9ef">MyModel</span><span style="color:#f92672">.</span>expects(<span style="color:#e6db74">:where</span>)<span style="color:#f92672">.</span>with(<span style="color:#e6db74">:active</span> <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">true</span>)<span style="color:#f92672">.</span>returns(where_mock)
-  
+
   get <span style="color:#e6db74">:some_action</span>
-  
+
   assigns(<span style="color:#e6db74">:models</span>)<span style="color:#f92672">.</span>should <span style="color:#f92672">==</span> limit_mock
 <span style="color:#66d9ef">end</span></code></pre></div>
 
