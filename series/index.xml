@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Series on Jason Roelofs</title>
-    <link>https://jasonroelofs.github.io/series/</link>
+    <link>https://jasonroelofs.com/series/</link>
     <description>Recent content in Series on Jason Roelofs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://jasonroelofs.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jasonroelofs.com/series/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Christianity</title>
-      <link>https://jasonroelofs.github.io/series/christianity/</link>
+      <link>https://jasonroelofs.com/series/christianity/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jasonroelofs.github.io/series/christianity/</guid>
+      <guid>https://jasonroelofs.com/series/christianity/</guid>
       <description>What is Christianity, what is a Christian, and what does &amp;ldquo;being a Christian&amp;rdquo; mean in today&amp;rsquo;s world?</description>
     </item>
     
     <item>
       <title>Designing A Rails Application</title>
-      <link>https://jasonroelofs.github.io/series/designing-a-rails-application/</link>
+      <link>https://jasonroelofs.com/series/designing-a-rails-application/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jasonroelofs.github.io/series/designing-a-rails-application/</guid>
+      <guid>https://jasonroelofs.com/series/designing-a-rails-application/</guid>
       <description>An experiment in alternative code organization when building a Rails application.</description>
     </item>
     

@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Jason Roelofs</title>
-    <link>https://jasonroelofs.github.io/tags/</link>
+    <link>https://jasonroelofs.com/tags/</link>
     <description>Recent content in Tags on Jason Roelofs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://jasonroelofs.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jasonroelofs.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
