@@ -24,6 +24,12 @@
 
 <h1>Abstract Persistence Logic</h1>
 
+
+  
+    <p class="series-info">A post in the <a href="/series/designing-a-rails-application/">Designing A Rails Application</a> series.</p>
+  
+
+
 <p>Choosing a persistence library at the start of a project is almost always a mistake. As the beginning is the point of highest ignorance, why make such important and hard-to-change decisions before there&rsquo;s any definitive knowledge of the real needs of the application? The most important aspect of any given application is it&rsquo;s business rules and domain model, both of which are code. In the end, users don&rsquo;t care how data is persisted, but they do care that the app works as expected. Focus on the application and everything else will grow from there. Persistence is an implementation detail and thus should be a low priority task.</p>
 
 <p>There are a number of benefits to deferring this decision. First and foremost is that this deferment will lead to the construction of a persistence API for your application. This API then makes any persistence requirement trivial to add to the project when it&rsquo;s needed. Secondly, because persistence is deferred, and because every application needs data, the first persistence implementation will be a simple set of in-memory collections. This makes the code, and more importantly the tests, extremely fast.</p>
