@@ -211,6 +211,16 @@ I&amp;rsquo;ve come to realize that there is nothing more important to crafting 
     </item>
     
     <item>
+      <title>Rules for Rails App Development</title>
+      <link>https://jasonroelofs.com/articles/2012/06/05/rules-for-rails-app-development/</link>
+      <pubDate>Tue, 05 Jun 2012 12:00:00 -0500</pubDate>
+      
+      <guid>https://jasonroelofs.com/articles/2012/06/05/rules-for-rails-app-development/</guid>
+      <description>If you haven&amp;rsquo;t yet, please read Designing a Rails App Part 1.
+It&amp;rsquo;s well known that starting a project can often be the most difficult phase of the project. You have ideas and probably some preliminary design work, but actually codifying those ideas requires a different thought process and a little bit of motivation. Often, to alieviate the difficulty of starting, you get the typical setup steps taken care of: generating a new Rails template, getting the database set up, choosing your favorite test framework, etc, giving you a familiar framework in which you can start your new project.</description>
+    </item>
+    
+    <item>
       <title>Designing a Rails App Part 1</title>
       <link>https://jasonroelofs.com/articles/2012/05/29/designing-a-rails-app-part-1/</link>
       <pubDate>Tue, 29 May 2012 12:00:00 -0500</pubDate>
@@ -221,21 +231,11 @@ I&amp;rsquo;ve come to realize that there is nothing more important to crafting 
     
     <item>
       <title>Manage and Monitor Reque with Upstart an Monit</title>
-      <link>https://jasonroelofs.com/articles/2012/03/12/manage-and-monitor-resque-with-upstart-and-monit/</link>
-      <pubDate>Tue, 29 May 2012 12:00:00 -0500</pubDate>
+      <link>https://jasonroelofs.com/articles/2012/03/12/manage-and-monitor-reque-with-upstart-an-monit/</link>
+      <pubDate>Mon, 12 Mar 2012 12:00:00 -0500</pubDate>
       
-      <guid>https://jasonroelofs.com/articles/2012/03/12/manage-and-monitor-resque-with-upstart-and-monit/</guid>
+      <guid>https://jasonroelofs.com/articles/2012/03/12/manage-and-monitor-reque-with-upstart-an-monit/</guid>
       <description>This post is out of date. See my latest: Managing Resque with Upstart.   Resque, the unix-y process and child based background worker library from Github, is a joy to use. It&#39;s simple to set up and to integrate into your code, only requiring Redis for the queue, and runs through a single rake task from the command line. It really couldn&#39;t be easier for how scalable and robust the library is.</description>
-    </item>
-    
-    <item>
-      <title>Rules for Rails App Development</title>
-      <link>https://jasonroelofs.com/articles/2012/06/05/rules-for-rails-app-development/</link>
-      <pubDate>Tue, 29 May 2012 12:00:00 -0500</pubDate>
-      
-      <guid>https://jasonroelofs.com/articles/2012/06/05/rules-for-rails-app-development/</guid>
-      <description>If you haven&amp;rsquo;t yet, please read Designing a Rails App Part 1.
-It&amp;rsquo;s well known that starting a project can often be the most difficult phase of the project. You have ideas and probably some preliminary design work, but actually codifying those ideas requires a different thought process and a little bit of motivation. Often, to alieviate the difficulty of starting, you get the typical setup steps taken care of: generating a new Rails template, getting the database set up, choosing your favorite test framework, etc, giving you a familiar framework in which you can start your new project.</description>
     </item>
     
   </channel>
