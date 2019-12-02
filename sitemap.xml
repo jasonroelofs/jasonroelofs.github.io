@@ -62,12 +62,27 @@
   
   <url>
     <loc>https://jasonroelofs.com/articles/</loc>
-    <lastmod>2018-01-22T09:05:18-05:00</lastmod>
+    <lastmod>2018-06-12T09:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2018/06/12/whats-in-a-templating-language-part-2/</loc>
+    <lastmod>2018-06-12T09:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2018/03/06/whats-in-a-templating-language-part-1/</loc>
+    <lastmod>2018-03-06T09:09:22-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://jasonroelofs.com/articles/2018/01/22/life-part-1/</loc>
     <lastmod>2018-01-22T09:05:18-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2017/11/28/securing-the-root-user-on-macos-high-sierra/</loc>
+    <lastmod>2017-11-28T20:08:34+00:00</lastmod>
   </url>
   
   <url>
@@ -101,8 +116,58 @@
   </url>
   
   <url>
+    <loc>https://jasonroelofs.com/articles/2016/03/09/modern-javascript-and-rails/</loc>
+    <lastmod>2016-03-09T09:25:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2015/04/13/bootstrap-your-app/</loc>
+    <lastmod>2015-04-13T09:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2015/01/11/encrypting-secrets-with-chef-vault/</loc>
+    <lastmod>2015-01-11T17:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2014/08/06/time-to-bring-back-fixtures/</loc>
+    <lastmod>2014-08-06T09:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2014/07/15/recommended-security-setup-for-aws/</loc>
+    <lastmod>2014-07-15T10:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2014/02/14/selective-restore-in-mongodb/</loc>
+    <lastmod>2014-02-14T22:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2014/02/11/false-positives-on-travis-ci-with-codeclimate-/-simplecov/</loc>
+    <lastmod>2014-02-11T10:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2013/11/25/ruby-2-ssl-verification-failed/</loc>
+    <lastmod>2013-11-25T14:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2013/10/21/debugging-firefox-failures-on-travis/</loc>
+    <lastmod>2013-10-21T09:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jasonroelofs.com/articles/2013/10/08/managing-resque-with-upstart/</loc>
     <lastmod>2013-10-08T12:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2013/06/05/rackcache-tmp/cache-and-running-out-of-inodes/</loc>
+    <lastmod>2013-06-05T11:00:00-04:00</lastmod>
   </url>
   
   <url>
@@ -116,6 +181,26 @@
   </url>
   
   <url>
+    <loc>https://jasonroelofs.com/articles/2013/01/11/running-haproxy-behind-amazons-elb/</loc>
+    <lastmod>2013-01-11T19:05:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2012/12/03/playing-with-go-embarrassingly-parallel-scripts/</loc>
+    <lastmod>2012-12-03T09:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2012/11/12/tests-still-slow-might-be-bcrypt/</loc>
+    <lastmod>2012-11-12T14:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2012/10/03/keep-your-aws-environments-separate-with-iam-users-and-groups./</loc>
+    <lastmod>2012-10-03T09:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jasonroelofs.com/articles/2012/10/01/naming-is-everything/</loc>
     <lastmod>2012-10-01T12:00:00-05:00</lastmod>
   </url>
@@ -123,6 +208,11 @@
   <url>
     <loc>https://jasonroelofs.com/articles/2012/07/13/abstract-persistence-logic/</loc>
     <lastmod>2012-07-13T12:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jasonroelofs.com/articles/2012/06/28/wheres-your-business-logic/</loc>
+    <lastmod>2012-06-28T09:00:00-04:00</lastmod>
   </url>
   
   <url>
