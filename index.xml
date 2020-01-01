@@ -6,7 +6,7 @@
     <description>Recent content in Home on Jason Roelofs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Nov 2019 15:10:17 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jan 2020 12:00:00 -0500</lastBuildDate>
     
 	<atom:link href="https://jasonroelofs.com/index.xml" rel="self" type="application/rss+xml" />
     
@@ -19,8 +19,7 @@
       <guid>https://jasonroelofs.com/talks/keeping-ops-happy/</guid>
       <description>I gave a talk at Mountain West Ruby Conf entitled &amp;ldquo;Keep Ops Happy: Designing for Production&amp;rdquo;, a discussion of tips, tricks, and suggestions for how to design an application in a way that makes it easy to deploy and maintain in a production environment.
 The slides:
- And the video:
- </description>
+And the video:</description>
     </item>
     
     <item>
@@ -38,7 +37,7 @@ The slides:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://jasonroelofs.com/series/christianity/</guid>
-      <description>What is Christianity, what is a Christian, and what does &amp;ldquo;being a Christian&amp;rdquo; mean in today&amp;rsquo;s world?</description>
+      <description>What is Christianity, what is a Christian, and what does &amp;ldquo;being a Christian&amp;rdquo; mean in today&#39;s world?</description>
     </item>
     
     <item>
@@ -96,6 +95,17 @@ The slides:
     </item>
     
     <item>
+      <title>Life, Part 2</title>
+      <link>https://jasonroelofs.com/articles/2020/01/01/life-part-2/</link>
+      <pubDate>Wed, 01 Jan 2020 12:00:00 -0500</pubDate>
+      
+      <guid>https://jasonroelofs.com/articles/2020/01/01/life-part-2/</guid>
+      <description>Thou shalt not kill.
+ Exodus 20:13 (King James Version)   In Life, Part 1 I focused on the beginning of life, the Christian view of life, and the immensely complex and difficult topic of abortion. For Part 2 I&#39;d like to discuss the other end of life: taking it and guns.
+Americans have a morbid obsession with guns, much more so than pretty much any other country in the world.</description>
+    </item>
+    
+    <item>
       <title>What&#39;s in a Templating Language, Part 2</title>
       <link>https://jasonroelofs.com/articles/2018/06/12/whats-in-a-templating-language-part-2/</link>
       <pubDate>Tue, 12 Jun 2018 09:00:00 -0500</pubDate>
@@ -137,7 +147,7 @@ The slides:
       <pubDate>Mon, 24 Jul 2017 12:55:19 -0400</pubDate>
       
       <guid>https://jasonroelofs.com/articles/2017/07/24/homosexuality/</guid>
-      <description>It&amp;rsquo;s finally time to address the issue that initially prompted my collection of articles on Christians and Christianity, but before we go anywhere, I need to lay out a few caveats.
+      <description>It&#39;s finally time to address the issue that initially prompted my collection of articles on Christians and Christianity, but before we go anywhere, I need to lay out a few caveats.
 First, if this is your first time here or you otherwise have not read my other articles, please do so before continuing on this piece. Those articles are Christianity, A Christian, Evil and Sin and The Bible. What follows builds directly on all of these.</description>
     </item>
     
@@ -165,8 +175,8 @@ First, if this is your first time here or you otherwise have not read my other a
       <pubDate>Wed, 01 Mar 2017 17:15:12 +0000</pubDate>
       
       <guid>https://jasonroelofs.com/articles/2017/03/01/evil-and-sin/</guid>
-      <description>The greatest trick the Devil ever pulled was convincing the world he didn&amp;rsquo;t exist. - The Usual Suspects
- And so we come to what&amp;rsquo;s probably the most difficult discussion for any Christian, but at the same time the most important aspect of understanding Christianity and its beliefs. I started with an introduction and list of the core rules of Christianity in What is Christianity and expanded on the consequences of these beliefs and rules in What is a Christian, but to really provide a solid base for understanding Christianity, we need to tackle two oft-asked and difficult questions:</description>
+      <description>The greatest trick the Devil ever pulled was convincing the world he didn&#39;t exist.
+ The Usual Suspects   And so we come to what&#39;s probably the most difficult discussion for any Christian, but at the same time the most important aspect of understanding Christianity and its beliefs. I started with an introduction and list of the core rules of Christianity in What is Christianity and expanded on the consequences of these beliefs and rules in What is a Christian, but to really provide a solid base for understanding Christianity, we need to tackle two oft-asked and difficult questions:</description>
     </item>
     
     <item>
@@ -175,8 +185,8 @@ First, if this is your first time here or you otherwise have not read my other a
       <pubDate>Mon, 13 Feb 2017 14:07:59 +0000</pubDate>
       
       <guid>https://jasonroelofs.com/articles/2017/02/13/a-christian/</guid>
-      <description>“The most important [commandment],” answered Jesus, “is this: ‘Hear, O Israel: The Lord our God, the Lord is one. Love the Lord your God with all your heart and with all your soul and with all your mind and with all your strength.’ The second is this: ‘Love your neighbor as yourself.’ There is no commandment greater than these.” - Mark 12:29-31
- A Christian is one who, having received from God grace, forgiveness, and the promise of eternal life after death, strives to embody the same principles to all people regardless of creed, religion, background, race, or actions.</description>
+      <description>“The most important [commandment],” answered Jesus, “is this: ‘Hear, O Israel: The Lord our God, the Lord is one. Love the Lord your God with all your heart and with all your soul and with all your mind and with all your strength.’ The second is this: ‘Love your neighbor as yourself.’ There is no commandment greater than these.”
+ Mark 12:29-31   A Christian is one who, having received from God grace, forgiveness, and the promise of eternal life after death, strives to embody the same principles to all people regardless of creed, religion, background, race, or actions.</description>
     </item>
     
     <item>
@@ -186,7 +196,7 @@ First, if this is your first time here or you otherwise have not read my other a
       
       <guid>https://jasonroelofs.com/articles/2017/01/26/christianity/</guid>
       <description>“I like your Christ, I do not like your Christians. Your Christians are so unlike your Christ.” - Mahatma Ghandi
- I&amp;rsquo;m beginning here a series of posts that have been weighing on my heart for a while now. With the election of Donald Trump to the Presidency of the United States, helped in no small part by the Evangelical Christians of this country, I can no longer stay silent.</description>
+ I&#39;m beginning here a series of posts that have been weighing on my heart for a while now. With the election of Donald Trump to the Presidency of the United States, helped in no small part by the Evangelical Christians of this country, I can no longer stay silent.</description>
     </item>
     
     <item>
@@ -276,8 +286,8 @@ First, if this is your first time here or you otherwise have not read my other a
       <pubDate>Tue, 08 Oct 2013 12:00:00 -0500</pubDate>
       
       <guid>https://jasonroelofs.com/articles/2013/10/08/managing-resque-with-upstart/</guid>
-      <description>This is a long overdue update to my previous post Managing Resque with Upstart and Monit. Much has changed in the world of process management and system administration and it&amp;rsquo;s time to update my previous post with what I see is the current Best Practice.
-First, Monit is gone. I haven&amp;rsquo;t installed or used this tool in a long time. That isn&amp;rsquo;t to say Monit is a bad tool, I&amp;rsquo;ve just come to see it is a redundant layer.</description>
+      <description>This is a long overdue update to my previous post Managing Resque with Upstart and Monit. Much has changed in the world of process management and system administration and it&#39;s time to update my previous post with what I see is the current Best Practice.
+First, Monit is gone. I haven&#39;t installed or used this tool in a long time. That isn&#39;t to say Monit is a bad tool, I&#39;ve just come to see it is a redundant layer.</description>
     </item>
     
     <item>
@@ -295,7 +305,7 @@ First, Monit is gone. I haven&amp;rsquo;t installed or used this tool in a long 
       <pubDate>Mon, 11 Feb 2013 12:00:00 -0500</pubDate>
       
       <guid>https://jasonroelofs.com/articles/2013/02/11/raidit-final-thoughts/</guid>
-      <description>Back in May of 2012 I started an experiment to help me learn how to develop and design Rails applications to be maintainable in the long term. Specifically I wanted to figure out how to stay away from Fat-Model Massively-Coupled code bases typical in Rails applications. To ensure I gave myself an environment of learning and didn&amp;rsquo;t fall into old habits through this process, I gave myself a set of rules for development.</description>
+      <description>Back in May of 2012 I started an experiment to help me learn how to develop and design Rails applications to be maintainable in the long term. Specifically I wanted to figure out how to stay away from Fat-Model Massively-Coupled code bases typical in Rails applications. To ensure I gave myself an environment of learning and didn&#39;t fall into old habits through this process, I gave myself a set of rules for development.</description>
     </item>
     
     <item>
@@ -304,7 +314,7 @@ First, Monit is gone. I haven&amp;rsquo;t installed or used this tool in a long 
       <pubDate>Mon, 28 Jan 2013 12:00:00 -0500</pubDate>
       
       <guid>https://jasonroelofs.com/articles/2013/01/28/implementing-persistence/</guid>
-      <description>In Part 3 of this series of posts I talked about abstracting persistence layers and the various patterns used, as well as showing the pattern I built into raidit. I&amp;rsquo;ve now built the ActiveRecord-based Repository implementation, thus finishing raidit, so now it&amp;rsquo;s time to talk about how this went, what I learned, and if this pattern is a good model for future projects.
+      <description>In Part 3 of this series of posts I talked about abstracting persistence layers and the various patterns used, as well as showing the pattern I built into raidit. I&#39;ve now built the ActiveRecord-based Repository implementation, thus finishing raidit, so now it&#39;s time to talk about how this went, what I learned, and if this pattern is a good model for future projects.
 The resulting implementation can be seen in app/repositories/active_record_repo.</description>
     </item>
     
@@ -350,8 +360,8 @@ The resulting implementation can be seen in app/repositories/active_record_repo.
       <pubDate>Mon, 01 Oct 2012 12:00:00 -0500</pubDate>
       
       <guid>https://jasonroelofs.com/articles/2012/10/01/naming-is-everything/</guid>
-      <description>I would like to start this off by recommending all developers who care about building readable, well designed code go get a copy of Uncle Bob&amp;rsquo;s Clean Code. This book is a treasure trove of examples on refactoring and renaming to make cleaner code.
-I&amp;rsquo;ve come to realize that there is nothing more important to crafting good, well designed code than choosing good names. Software could be exquisitely designed, with multiple levels of tests, and a beautiful web of clean, decoupled objects and services but all that work will be for naught if another developer can&amp;rsquo;t read and understand the resulting code.</description>
+      <description>I would like to start this off by recommending all developers who care about building readable, well designed code go get a copy of Uncle Bob&#39;s Clean Code. This book is a treasure trove of examples on refactoring and renaming to make cleaner code.
+ I&#39;ve come to realize that there is nothing more important to crafting good, well designed code than choosing good names. Software could be exquisitely designed, with multiple levels of tests, and a beautiful web of clean, decoupled objects and services but all that work will be for naught if another developer can&#39;t read and understand the resulting code.</description>
     </item>
     
     <item>
@@ -360,7 +370,7 @@ I&amp;rsquo;ve come to realize that there is nothing more important to crafting 
       <pubDate>Fri, 13 Jul 2012 12:00:00 -0500</pubDate>
       
       <guid>https://jasonroelofs.com/articles/2012/07/13/abstract-persistence-logic/</guid>
-      <description>Choosing a persistence library at the start of a project is almost always a mistake. As the beginning is the point of highest ignorance, why make such important and hard-to-change decisions before there&amp;rsquo;s any definitive knowledge of the real needs of the application? The most important aspect of any given application is it&amp;rsquo;s business rules and domain model, both of which are code. In the end, users don&amp;rsquo;t care how data is persisted, but they do care that the app works as expected.</description>
+      <description>Choosing a persistence library at the start of a project is almost always a mistake. As the beginning is the point of highest ignorance, why make such important and hard-to-change decisions before there&#39;s any definitive knowledge of the real needs of the application? The most important aspect of any given application is it&#39;s business rules and domain model, both of which are code. In the end, users don&#39;t care how data is persisted, but they do care that the app works as expected.</description>
     </item>
     
     <item>
@@ -378,8 +388,8 @@ I&amp;rsquo;ve come to realize that there is nothing more important to crafting 
       <pubDate>Tue, 05 Jun 2012 12:00:00 -0500</pubDate>
       
       <guid>https://jasonroelofs.com/articles/2012/06/05/rules-for-rails-app-development/</guid>
-      <description>If you haven&amp;rsquo;t yet, please read Designing a Rails App Part 1.
-It&amp;rsquo;s well known that starting a project can often be the most difficult phase of the project. You have ideas and probably some preliminary design work, but actually codifying those ideas requires a different thought process and a little bit of motivation. Often, to alieviate the difficulty of starting, you get the typical setup steps taken care of: generating a new Rails template, getting the database set up, choosing your favorite test framework, etc, giving you a familiar framework in which you can start your new project.</description>
+      <description>If you haven&#39;t yet, please read Designing a Rails App Part 1.
+It&#39;s well known that starting a project can often be the most difficult phase of the project. You have ideas and probably some preliminary design work, but actually codifying those ideas requires a different thought process and a little bit of motivation. Often, to alieviate the difficulty of starting, you get the typical setup steps taken care of: generating a new Rails template, getting the database set up, choosing your favorite test framework, etc, giving you a familiar framework in which you can start your new project.</description>
     </item>
     
     <item>
@@ -388,7 +398,7 @@ It&amp;rsquo;s well known that starting a project can often be the most difficul
       <pubDate>Tue, 29 May 2012 12:00:00 -0500</pubDate>
       
       <guid>https://jasonroelofs.com/articles/2012/05/29/designing-a-rails-app-part-1/</guid>
-      <description>There is a rather frustrating problem with Rails development: nigh every Rails application quickly trends towards unmaintainability. These Rails apps become monolithic, bloated, difficult-to-understand and even harder to maintain over time. This isn&amp;rsquo;t an attack on Rails itself, it is just a set of libraries, but this is a pervasive problem in the Rails community today. I myself have ended up with mess of a Rails app more times than I care to admit, and most of them were ones I started!</description>
+      <description>There is a rather frustrating problem with Rails development: nigh every Rails application quickly trends towards unmaintainability. These Rails apps become monolithic, bloated, difficult-to-understand and even harder to maintain over time. This isn&#39;t an attack on Rails itself, it is just a set of libraries, but this is a pervasive problem in the Rails community today. I myself have ended up with mess of a Rails app more times than I care to admit, and most of them were ones I started!</description>
     </item>
     
     <item>

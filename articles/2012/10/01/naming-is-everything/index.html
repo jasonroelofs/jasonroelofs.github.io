@@ -3,7 +3,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.59.1" />
+  <meta name="generator" content="Hugo 0.62.0" />
   <link href="https://fonts.googleapis.com/css?family=Staatliches|Open+Sans&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="https://jasonroelofs.com/css/style.css">
@@ -32,70 +32,41 @@
   
 
 
-
-
-<p>I would like to start this off by recommending all developers who care about building readable, well designed code go get a copy of Uncle Bob&rsquo;s <a href="http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882/ref=sr_1_1?ie=UTF8&amp;qid=1348537881&amp;sr=8-1&amp;keywords=clean+code">Clean Code</a>. This book is a treasure trove of examples on refactoring and renaming to make cleaner code.</p>
-
-<hr />
-
-<p>I&rsquo;ve come to realize that there is nothing more important to crafting good, well designed code than choosing good names. Software could be exquisitely designed, with multiple levels of tests, and a beautiful web of clean, decoupled objects and services but all that work will be for naught if another developer can&rsquo;t read and understand the resulting code. Software development is two processes: Informing others what the computer is doing and Telling the computer what to do. If the code fails at the first then any work done towards the second is for all intents and purposes moot. Computers couldn&rsquo;t care less, but the people who follow up on our work definitely do.</p>
-
-<p>The most unfortunate consequence of the &ldquo;get it done quick&rdquo; culture is we forget our code will be read and maintained by someone else at some point in the future, and we confuse our understanding of our code with code being understandable. Why? Because the first thing get-it-quick development does is skimp on naming. We end up with classes named Controller, Manager, and Factory. We end up with God objects that sit on top of massive hierarchies and bloated Utility objects because we couldn&rsquo;t think of another place to put said code. We write methods with ambiguous names, or worse we leave in names that no longer match the method&rsquo;s functionality. We write code blocks full of single-letter variable names, use names with no rhyme or reason (enterprise = spock + kirk) or even reuse the same small set of variables requiring the reader to keep register memory in his or her head.</p>
-
-<p>And yes, I have done pretty much all of this, though if I&rsquo;ve &ldquo;spock + kirk&rdquo;&rsquo;d up any code I don&rsquo;t remember, and I&rsquo;m terribly sorry if I have. At least that kind of code tells the reader outright that what they are reading is nonsensical. I have also let curse words into production, something I will never, ever let happen again, but I digress&hellip;</p>
-
+<p>I would like to start this off by recommending all developers who care about building readable, well designed code go get a copy of Uncle Bob's <a href="http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882/ref=sr_1_1?ie=UTF8&amp;qid=1348537881&amp;sr=8-1&amp;keywords=clean+code">Clean Code</a>. This book is a treasure trove of examples on refactoring and renaming to make cleaner code.</p>
+<hr>
+<p>I've come to realize that there is nothing more important to crafting good, well designed code than choosing good names. Software could be exquisitely designed, with multiple levels of tests, and a beautiful web of clean, decoupled objects and services but all that work will be for naught if another developer can't read and understand the resulting code. Software development is two processes: Informing others what the computer is doing and Telling the computer what to do. If the code fails at the first then any work done towards the second is for all intents and purposes moot. Computers couldn't care less, but the people who follow up on our work definitely do.</p>
+<p>The most unfortunate consequence of the &ldquo;get it done quick&rdquo; culture is we forget our code will be read and maintained by someone else at some point in the future, and we confuse our understanding of our code with code being understandable. Why? Because the first thing get-it-quick development does is skimp on naming. We end up with classes named Controller, Manager, and Factory. We end up with God objects that sit on top of massive hierarchies and bloated Utility objects because we couldn't think of another place to put said code. We write methods with ambiguous names, or worse we leave in names that no longer match the method's functionality. We write code blocks full of single-letter variable names, use names with no rhyme or reason (enterprise = spock + kirk) or even reuse the same small set of variables requiring the reader to keep register memory in his or her head.</p>
+<p>And yes, I have done pretty much all of this, though if I've &ldquo;spock + kirk&rdquo;&lsquo;d up any code I don't remember, and I'm terribly sorry if I have. At least that kind of code tells the reader outright that what they are reading is nonsensical. I have also let curse words into production, something I will never, ever let happen again, but I digress&hellip;</p>
 <p>So what am I doing to stop this madness, and what can we all do to make code readable, understandable, and maintainable?</p>
-
-<p style="text-align: center; font-size: 30px; font-weight: bold; padding-top: 20px; padding-bottom: 20px;">Choose Good Names</p>
-
-<p>Of course, there&rsquo;s one <em>small</em> caveat&hellip;</p>
-
+<!-- raw HTML omitted -->
+<p>Of course, there's one <em>small</em> caveat&hellip;</p>
 <blockquote>
 <p>There are two hard things in Computer Science: cache invalidation and naming things.</p>
-
 <p>&ndash; Phil Karlton</p>
 </blockquote>
-
-<p>Choosing good names is hard. <em>Really</em> hard, but anyone who said software development was easy was lying. Oh yes giving directions to a computer is rather simple, but as I said previously, that&rsquo;s a small part of what we do. As many prominent developers have been saying lately, Software is a Social Art. We are constantly learning from each other, sharing tips and tricks, yet we then turn around and drop turds of code on each other. Software is written once, maybe modified a few times, but read many times more, by people we do and do not know, and every step of our development should live and breath this fact.</p>
-
+<p>Choosing good names is hard. <em>Really</em> hard, but anyone who said software development was easy was lying. Oh yes giving directions to a computer is rather simple, but as I said previously, that's a small part of what we do. As many prominent developers have been saying lately, Software is a Social Art. We are constantly learning from each other, sharing tips and tricks, yet we then turn around and drop turds of code on each other. Software is written once, maybe modified a few times, but read many times more, by people we do and do not know, and every step of our development should live and breath this fact.</p>
 <p>Even the simplest methods are exponentially more understandable with good naming. Take a copy method, which is easier to read?</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">copy</span>(x, y)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">copy</span>(x, y)
   x<span style="color:#f92672">.</span>member1 <span style="color:#f92672">=</span> y<span style="color:#f92672">.</span>member1
   x<span style="color:#f92672">.</span>member2 <span style="color:#f92672">=</span> y<span style="color:#f92672">.</span>member2
 <span style="color:#66d9ef">end</span></code></pre></div>
-
 <p>vs</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">copy</span>(from, to)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">copy</span>(from, to)
   to<span style="color:#f92672">.</span>member1 <span style="color:#f92672">=</span> from<span style="color:#f92672">.</span>member1
   to<span style="color:#f92672">.</span>member2 <span style="color:#f92672">=</span> from<span style="color:#f92672">.</span>member2
 <span style="color:#66d9ef">end</span></code></pre></div>
-
-<p>A simple set of names makes the method immediately and completely descriptive without even looking at the implementation. It&rsquo;s copying data from the object at <em>from</em> to the object at <em>to</em>. With the nondescript <em>x</em> and <em>y</em> parameters we have to look at the implementation to know which one is copying to and from where. Taking the care, the few seconds or few minutes to write out the variables in full, to name your objects descriptively, to make sure the code is readable, will pay off in spades. Spending ten minutes now will save the next developer potentially hours of maintenance work.</p>
-
-<p>To help with this understanding I&rsquo;ve pulled together a number of examples from <a href="https://github.com/jasonroelofs/raidit">raidit</a> on good naming, some bad naming, and some refactoring I&rsquo;ve done to get to better naming.</p>
-
+<p>A simple set of names makes the method immediately and completely descriptive without even looking at the implementation. It's copying data from the object at <em>from</em> to the object at <em>to</em>. With the nondescript <em>x</em> and <em>y</em> parameters we have to look at the implementation to know which one is copying to and from where. Taking the care, the few seconds or few minutes to write out the variables in full, to name your objects descriptively, to make sure the code is readable, will pay off in spades. Spending ten minutes now will save the next developer potentially hours of maintenance work.</p>
+<p>To help with this understanding I've pulled together a number of examples from <a href="https://github.com/jasonroelofs/raidit">raidit</a> on good naming, some bad naming, and some refactoring I've done to get to better naming.</p>
 <h4 id="parameters-and-variables">Parameters and Variables</h4>
-
 <p><a href="https://github.com/jasonroelofs/raidit/commit/3a942a83aeece200c7c40661ccbc1cec55d37e64">Renaming params to attributes</a></p>
-
-<p>Parameter names don&rsquo;t have to be short to be bad. Sometimes the name just has too much leeway in what it could be. In this case <em>params</em> is too open of a name. I don&rsquo;t want to be passing any random bit if data into this method through it&rsquo;s parameters. What I&rsquo;m passing down are the <em>attributes</em> of the model I&rsquo;m building, so lets name the parameter as such.</p>
-
+<p>Parameter names don't have to be short to be bad. Sometimes the name just has too much leeway in what it could be. In this case <em>params</em> is too open of a name. I don't want to be passing any random bit if data into this method through it's parameters. What I'm passing down are the <em>attributes</em> of the model I'm building, so lets name the parameter as such.</p>
 <p><a href="https://github.com/jasonroelofs/raidit/blob/5cf5cd01255721954c6eb143cf739fe053a82657/app/interactors/change_password.rb">ChangePassword</a></p>
-
 <p>Verbose variable names are always better than one- or two-letter names. My choice of very explicit, verbose variable names in this object leaves no room for doubt or confusion when reading this code.</p>
-
 <h4 id="methods-and-functions">Methods and Functions</h4>
-
 <p><a href="https://github.com/jasonroelofs/raidit/commit/b4c079816225270b946eaa12e9900067f2476a64">Refactor #run to a static method</a></p>
-
-<p>As I mentioned in <a href="/2012/06/05/rules-for-rails-app-development">Part 2</a> of this series, as well as in my post at the <a href="http://collectiveidea.com/blog/archives/2012/06/28/wheres-your-business-logic/">Collective Idea blog</a>, I&rsquo;ve been defaulting my Interactor objects to have a <em>#run</em> instance method which contains the main chunk of functionality for that action. Now I was at the time aware that <em>run</em> is a not a good name and as I have built out the functionality in raidit I&rsquo;ve been finding better names for these methods. I&rsquo;ve also come to understand and appreciate that <a href="http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html">Dude, not everything is an object</a> and have been changing some simpler Interactors to be static methods with names that are very explicit on what they do and/or return.</p>
-
+<p>As I mentioned in <a href="/2012/06/05/rules-for-rails-app-development">Part 2</a> of this series, as well as in my post at the <a href="http://collectiveidea.com/blog/archives/2012/06/28/wheres-your-business-logic/">Collective Idea blog</a>, I've been defaulting my Interactor objects to have a <em>#run</em> instance method which contains the main chunk of functionality for that action. Now I was at the time aware that <em>run</em> is a not a good name and as I have built out the functionality in raidit I've been finding better names for these methods. I've also come to understand and appreciate that <a href="http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html">Dude, not everything is an object</a> and have been changing some simpler Interactors to be static methods with names that are very explicit on what they do and/or return.</p>
 <h4 id="constructors">Constructors</h4>
-
-<p>Now this may come across as an odd section given my focus on Ruby, but a constructor is nothing more than a method that builds and returns a new object. In Ruby&rsquo;s case, any static method that returns an instance of the class said method resides in can be considered a constructor. For example, take the following class with a few named constructors:</p>
-
+<p>Now this may come across as an odd section given my focus on Ruby, but a constructor is nothing more than a method that builds and returns a new object. In Ruby's case, any static method that returns an instance of the class said method resides in can be considered a constructor. For example, take the following class with a few named constructors:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ListMessages</span>
 
   <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">self</span><span style="color:#f92672">.</span><span style="color:#a6e22e">received_by</span>(user)
@@ -106,38 +77,28 @@
     <span style="color:#66d9ef">new</span>(<span style="color:#e6db74">:sent</span>, user)
   <span style="color:#66d9ef">end</span>
 
-  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">initialize</span>(sent_or_received, user)
-    @messages <span style="color:#f92672">=</span> <span style="color:#66d9ef">Message</span><span style="color:#f92672">.</span>send(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>sent_or_received<span style="color:#e6db74">}</span><span style="color:#e6db74">_by&#34;</span>, user)
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">initialize</span>(sent_or_received, user)
+    @messages <span style="color:#f92672">=</span> <span style="color:#66d9ef">Message</span><span style="color:#f92672">.</span>send(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>sent_or_received<span style="color:#e6db74">}</span><span style="color:#e6db74">_by</span><span style="color:#e6db74">&#34;</span>, user)
   <span style="color:#66d9ef">end</span>
 
 <span style="color:#66d9ef">end</span></code></pre></div>
-
 <p>Then compare the code to run them</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">messages <span style="color:#f92672">=</span> <span style="color:#66d9ef">ListMessages</span><span style="color:#f92672">.</span>sent_to(user)
 
 <span style="color:#75715e"># vs</span>
 
 messages <span style="color:#f92672">=</span> <span style="color:#66d9ef">ListMessages</span><span style="color:#f92672">.</span>new(<span style="color:#e6db74">:sent</span>, user)</code></pre></div>
-
-<p>The differences are subtle but noticable. The first one reads more like a sentance, a statement of intent, while the second requires you to understand that you need to pass in a symbol stating which type of Message you want for the given user. When code tells you it&rsquo;s intent without getting you bogged down in the implementation details, then you know you have good naming and are progressing towards better overall design.</p>
-
+<p>The differences are subtle but noticable. The first one reads more like a sentance, a statement of intent, while the second requires you to understand that you need to pass in a symbol stating which type of Message you want for the given user. When code tells you it's intent without getting you bogged down in the implementation details, then you know you have good naming and are progressing towards better overall design.</p>
 <h4 id="behavioral-naming-and-consistency">Behavioral Naming and Consistency</h4>
-
-<p>Once you&rsquo;re in the habit of spending time picking good names, and figuring out how to write readable code, you&rsquo;ll find yourself in situations where the names you&rsquo;ve chosen are fine names in and of themselves but there&rsquo;s something still not right about them. You may be running into definition and naming inconsistencies. One of the less immediately obvious aspects of well designed, well named code is that the names are consistent and follow a convention across the application. If you have Create and Add that do the same thing, you should pick one and refactor the rest. In raidit, I have the following conventions for my Interactors:</p>
-
+<p>Once you're in the habit of spending time picking good names, and figuring out how to write readable code, you'll find yourself in situations where the names you've chosen are fine names in and of themselves but there's something still not right about them. You may be running into definition and naming inconsistencies. One of the less immediately obvious aspects of well designed, well named code is that the names are consistent and follow a convention across the application. If you have Create and Add that do the same thing, you should pick one and refactor the rest. In raidit, I have the following conventions for my Interactors:</p>
 <ul>
 <li>Find[Type]    - Return a single object of the given type</li>
 <li>List[Types]   - Return a list of objects, though that list can be empty</li>
 <li>Update[Type]  - Process an existing object with new information</li>
 </ul>
-
-<p>For app-specific functionality I work to keep the nomenclature following the application&rsquo;s needs and not named according to any implementation details (such as being a website). For example, I used to have <em>FindRaid</em> named <em>ShowRaid</em> (<a href="https://github.com/jasonroelofs/raidit/commit/8d3e8b4">commit</a>) but <a href="https://github.com/jasonroelofs/raidit/commit/be40902">reverted</a> that when I realized that the action had nothing to do with &ldquo;showing&rdquo;; it was pulling the object from persistence. Adding a new raid is called <a href="https://github.com/jasonroelofs/raidit/blob/master/app/interactors/schedule_raid.rb">ScheduleRaid</a>. Creating a new account is done in <a href="https://github.com/jasonroelofs/raidit/blob/master/app/interactors/sign_up_user.rb">SignUpUser</a> and it&rsquo;s counterpart is <a href="https://github.com/jasonroelofs/raidit/blob/master/app/interactors/log_user_in.rb">LogUserIn</a> (and you know, I should fix those to be either LogInUser or SignUserUp), in keeping with the wording used on the site itself: Sign Up, Log In, Log Out. With objects named like this, we now have an application structure that tells you what the application does straight from the file names. Check it out for yourself! <a href="https://github.com/jasonroelofs/raidit/tree/master/app/interactors">raidit/app/interactors</a></p>
-
-<hr />
-
-<p>As I&rsquo;ve developed raidit, almost every time I&rsquo;ve gotten the &ldquo;this isn&rsquo;t quite right&rdquo; feel, or whenever my test setup started to get unwieldy and painful, the most common fix has been to figure out which name is wrong. Once I&rsquo;ve found the offending name, either via changing an existing name or extracting code from one name and giving that code its own name, the rest has simply fallen into place. Good naming may be one of the hardest jobs in software but it&rsquo;s also one of the most important. We must work to ensure our code is readable by other developers, not just something we understand.</p>
-
+<p>For app-specific functionality I work to keep the nomenclature following the application's needs and not named according to any implementation details (such as being a website). For example, I used to have <em>FindRaid</em> named <em>ShowRaid</em> (<a href="https://github.com/jasonroelofs/raidit/commit/8d3e8b4">commit</a>) but <a href="https://github.com/jasonroelofs/raidit/commit/be40902">reverted</a> that when I realized that the action had nothing to do with &ldquo;showing&rdquo;; it was pulling the object from persistence. Adding a new raid is called <a href="https://github.com/jasonroelofs/raidit/blob/master/app/interactors/schedule_raid.rb">ScheduleRaid</a>. Creating a new account is done in <a href="https://github.com/jasonroelofs/raidit/blob/master/app/interactors/sign_up_user.rb">SignUpUser</a> and it's counterpart is <a href="https://github.com/jasonroelofs/raidit/blob/master/app/interactors/log_user_in.rb">LogUserIn</a> (and you know, I should fix those to be either LogInUser or SignUserUp), in keeping with the wording used on the site itself: Sign Up, Log In, Log Out. With objects named like this, we now have an application structure that tells you what the application does straight from the file names. Check it out for yourself! <a href="https://github.com/jasonroelofs/raidit/tree/master/app/interactors">raidit/app/interactors</a></p>
+<hr>
+<p>As I've developed raidit, almost every time I've gotten the &ldquo;this isn't quite right&rdquo; feel, or whenever my test setup started to get unwieldy and painful, the most common fix has been to figure out which name is wrong. Once I've found the offending name, either via changing an existing name or extracting code from one name and giving that code its own name, the rest has simply fallen into place. Good naming may be one of the hardest jobs in software but it's also one of the most important. We must work to ensure our code is readable by other developers, not just something we understand.</p>
 <p>Bad names facilitate bad design. Good names breed good design. Spend the time to do this part right and the rest will follow.</p>
 
 
