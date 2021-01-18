@@ -6,11 +6,7 @@
     <description>Recent content in Projects on Jason Roelofs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Nov 2019 14:56:19 -0400</lastBuildDate>
-    
-	<atom:link href="https://jasonroelofs.com/projects/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 01 Nov 2019 14:56:19 -0400</lastBuildDate><atom:link href="https://jasonroelofs.com/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dotfiles</title>
       <link>https://jasonroelofs.com/projects/dotfiles/</link>
