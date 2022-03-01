@@ -3,7 +3,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.92.0" />
   <link href="https://fonts.googleapis.com/css?family=Staatliches|Open+Sans&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="https://jasonroelofs.com/css/style.css">
@@ -39,7 +39,7 @@
 <h4 id="associations">Associations</h4>
 <p>When working with in-memory objects, it&rsquo;s very easy to write code that expects objects and their associations to just exist. When I updated the app to serialize to a real database, these associations completely broke. Guilds no longer had their list of Raids, nor Users their list of Characters, for example. The last thing I wanted to do was build a half-baked version of ActiveRecord, so the quickest thing I could get working was to eagerly load every assocation on the requested object. This is fine for small sets of objects, but it can&rsquo;t possibly scale and is not easily maintainable.</p>
 <p>Another solution I considered would require a redesign of most of the domain models to work more like ActiveRecord, where models would be able to query for their associations as they needed them, something like the following:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Guild</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Guild</span>
   <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">raids</span>
     <span style="color:#66d9ef">Repository</span><span style="color:#f92672">.</span>for(<span style="color:#66d9ef">Raid</span>)<span style="color:#f92672">.</span>find_all_by_guild(self)
   <span style="color:#66d9ef">end</span>
@@ -57,7 +57,7 @@
 <p>This very quickly became Not Fun and is the reason it took me so long to finish up raidit and get this post written. A good lesson I&rsquo;ve tried to follow throughout my development career is that if some code or feature request fills me with dread, that probably means there&rsquo;s a fundamental issue with the design of the code or with the current development practice(s). Functionality should always be fun to add to an application. The Repository pattern, as I&rsquo;ve implemented in raidit, removed a lot of that fun.</p>
 <p>So would I recommend others follow this pattern? No, not as I&rsquo;ve done it here. There may be ways, and there are probably applications that would work well with this pattern, but I would urge caution not to build in abstractions just to have them. So what about preventing another Typical Rails App? I propose the following development suggestions.</p>
 <p>Don&rsquo;t leak persistence details outside of ActiveRecord (with the caveat that column names ending up in the view isn&rsquo;t in itself bad). For example, any code that chains scopes and/or ARel methods should refactored behind an Intention-Revealing Name <!-- raw HTML omitted --><a href="#footnote">1</a><!-- raw HTML omitted --> (an instance method, class method, or object).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#75715e"># Change this</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#75715e"># Change this</span>
 current_guild<span style="color:#f92672">.</span>raids<span style="color:#f92672">.</span>order_by(<span style="color:#e6db74">:created_at</span>)<span style="color:#f92672">.</span>limit(<span style="color:#ae81ff">10</span>)
 
 <span style="color:#75715e"># To this</span>

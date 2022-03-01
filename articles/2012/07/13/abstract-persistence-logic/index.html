@@ -3,7 +3,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.92.0" />
   <link href="https://fonts.googleapis.com/css?family=Staatliches|Open+Sans&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="https://jasonroelofs.com/css/style.css">
@@ -39,7 +39,7 @@
 <p>The pattern I chose needed to fit two criteria: simple and pluggable, as I needed to be able to have an in-memory implementation for development and tests right next to any true persistence implementation. I chose to go with Repository in raidit over DataMapper as DataMapper, like ActiveRecord, still adds too much knowledge of persistence to the models (e.g. User#save) and I want a clear deliniation between persistence and the application. The Repository pattern does exactly this. Because Ruby is so dynamic, implementing this pattern is very simple. I&rsquo;ll show two implementations here.</p>
 <p><strong>Note:</strong> I&rsquo;m implementing a very basic version of Repository. Where PoEAA talks about a Criteria system (which some have interpreted as an entire library or language, like ARel or Hibernate&rsquo;s HQL), I want to use nothing more complicated than method calls. I don&rsquo;t want any code outside of a Repository implementation knowing how data is stored or queried.</p>
 <p>The first implementation, and the implementation that raidit currently uses, consists of a single, simple object to map models to the appropriate repository implementation. As you can see here, this object is nothing more than a few helper methods on top of a Hash:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Repository</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Repository</span>
 
   <span style="color:#75715e">##</span>
   <span style="color:#75715e"># Add mapping(s) to this repository. This will add to the existing known</span>
@@ -66,14 +66,14 @@
 
 <span style="color:#66d9ef">end</span></code></pre></div>
 <p>It&rsquo;s usage is simple. First define how the classes map to their persistence:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">Repository</span><span style="color:#f92672">.</span>configure(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">Repository</span><span style="color:#f92672">.</span>configure(
   <span style="color:#e6db74">&#34;User&#34;</span>        <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">InMemory</span><span style="color:#f92672">::</span><span style="color:#66d9ef">UserRepo</span><span style="color:#f92672">.</span>new
 )</code></pre></div>
 <p>then request the persistence object whenever persistence is needed:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">user <span style="color:#f92672">=</span> <span style="color:#66d9ef">User</span><span style="color:#f92672">.</span>new
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">user <span style="color:#f92672">=</span> <span style="color:#66d9ef">User</span><span style="color:#f92672">.</span>new
 <span style="color:#66d9ef">Repository</span><span style="color:#f92672">.</span>for(<span style="color:#66d9ef">User</span>)<span style="color:#f92672">.</span>save user</code></pre></div>
 <p>An alternate implementation that&rsquo;s arguably more Ruby-esque is to simply set constants to the implementations, using those constants directly as needed, like so:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">UserRepository</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">InMemory</span><span style="color:#f92672">::</span><span style="color:#66d9ef">UserRepo</span><span style="color:#f92672">.</span>new
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">UserRepository</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">InMemory</span><span style="color:#f92672">::</span><span style="color:#66d9ef">UserRepo</span><span style="color:#f92672">.</span>new
 
 <span style="color:#f92672">...</span>
 

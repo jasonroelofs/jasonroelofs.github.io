@@ -3,7 +3,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name="generator" content="Hugo 0.92.0" />
   <link href="https://fonts.googleapis.com/css?family=Staatliches|Open+Sans&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="https://jasonroelofs.com/css/style.css">
@@ -48,7 +48,7 @@
 <h2 id="mock-dont-mock-testing-is-hard">Mock? Don&rsquo;t mock? Testing is hard</h2>
 <p>Mocks and bogus objects are a great way to ensure that tests are isolating the code in question. One of the biggest pain points of most Rails applications is testing and the misuse or non-use of test isolation. In many cases, every test in the suite tests the entire stack, requiring data in the database and calling code that ends up modifying the database. This is the main cause of slow test suites, and fixing this on established applications is very difficult. Mocks can help out tremendously here but if overused they can also put the application in a worse situation: where tests pass but the application itself doesn&rsquo;t work.</p>
 <p>One of the easier mistakes to make when working with mocks is mocking implementation instead of behavior. I&rsquo;ve seen a lot of code that makes this mistake, and it is frustrating to work with. One small change to the code, without changing behavior, breaks multiple tests and updating those tests is tedious and unproductive. I&rsquo;ll give an example of this kind of mocking, and how to fix it. Take the following method and test:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">some_action</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">some_action</span>
   @models <span style="color:#f92672">=</span> <span style="color:#66d9ef">MyModel</span><span style="color:#f92672">.</span>where(<span style="color:#e6db74">:active</span> <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">true</span>)<span style="color:#f92672">.</span>order(<span style="color:#e6db74">:name</span>)<span style="color:#f92672">.</span>limit(<span style="color:#ae81ff">10</span>)
 <span style="color:#66d9ef">end</span>
 
@@ -66,7 +66,7 @@
   assigns(<span style="color:#e6db74">:models</span>)<span style="color:#f92672">.</span>should <span style="color:#f92672">==</span> limit_mock
 <span style="color:#66d9ef">end</span></code></pre></div>
 <p>There is nothing here to show intent. This only tests implementation, any single change breaks the entire test even though the behavior may not change at all (for example, swapping the order and limit calls), and the test is very hard to read. This code and test is easily fixed up while still using mocks and staying away from database objects by using an Intent-Revealing Name (nothing is more important than <a href="/articles/2012/10/01/naming-is-everything">good naming</a>). Simply refactor that scope mess into it&rsquo;s own method and mock that one method.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">some_action</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">some_action</span>
   @models <span style="color:#f92672">=</span> <span style="color:#66d9ef">MyModel</span><span style="color:#f92672">.</span>active_sorted_by_name(<span style="color:#ae81ff">10</span>)
 <span style="color:#66d9ef">end</span>
 
