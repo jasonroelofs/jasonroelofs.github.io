@@ -117,7 +117,7 @@ Now, this isn&amp;rsquo;t a &amp;ldquo;What&amp;rsquo;s next for me?&amp;rdquo; 
       
       <guid>https://jasonroelofs.com/articles/2020/09/21/republicanism/</guid>
       <description>Not everyone who says to me, ‘Lord, Lord,’ will enter the kingdom of heaven, but only the one who does the will of my Father who is in heaven.
- Matthew 7:21   In 2016, Donald Trump was elected President of the United States of America, buoyed strongly by the overwhelming support of Evangelical Christians. This has triggered a lot of soul-searching and research into just what happened. I personally was a little in shock, and did a lot of reading myself.</description>
+Matthew 7:21 In 2016, Donald Trump was elected President of the United States of America, buoyed strongly by the overwhelming support of Evangelical Christians. This has triggered a lot of soul-searching and research into just what happened. I personally was a little in shock, and did a lot of reading myself.</description>
     </item>
     
     <item>
@@ -132,7 +132,7 @@ it costs folks like you and me.
 And if you don&amp;rsquo;t put in your buck &amp;lsquo;o five,
 who will?
 &amp;ndash; &amp;ldquo;Freedom Isn&amp;rsquo;t Free&amp;rdquo; from Team America, World Police
- &amp;ldquo;Freedom&amp;rdquo; may be the most misunderstood concept of the 21st century. The calls and cries of &amp;ldquo;freedom of speech&amp;rdquo; and &amp;ldquo;I&amp;rsquo;m free to do what I want&amp;rdquo; now pervade American social and political discourse. It seems we can&amp;rsquo;t discuss any societal ills without personal &amp;ldquo;freedom&amp;rdquo; being thrown into the mix, as if that somehow is the answer to everything.</description>
+&amp;ldquo;Freedom&amp;rdquo; may be the most misunderstood concept of the 21st century. The calls and cries of &amp;ldquo;freedom of speech&amp;rdquo; and &amp;ldquo;I&amp;rsquo;m free to do what I want&amp;rdquo; now pervade American social and political discourse. It seems we can&amp;rsquo;t discuss any societal ills without personal &amp;ldquo;freedom&amp;rdquo; being thrown into the mix, as if that somehow is the answer to everything.</description>
     </item>
     
     <item>
@@ -152,8 +152,8 @@ I didn&amp;rsquo;t originally intend for this article to dip into political matt
       
       <guid>https://jasonroelofs.com/articles/2020/01/01/life-part-2/</guid>
       <description>Thou shalt not kill.
- Exodus 20:13 (King James Version)   In Life, Part 1 I focused on the beginning of life, the Christian view of life, and the immensely complex and difficult topic of abortion. For Part 2 I&amp;rsquo;d like to discuss the other end of life: taking it and guns.
-Americans have a morbid obsession with guns, much more so than pretty much any other country in the world.</description>
+Exodus 20:13 (King James Version) In Life, Part 1 I focused on the beginning of life, the Christian view of life, and the immensely complex and difficult topic of abortion. For Part 2 I&amp;rsquo;d like to discuss the other end of life: taking it and guns.
+Americans have a morbid obsession with guns, much more so than pretty much any other country in the world. This obsession is regularly boosted and fueled by groups like the NRA as well as a fundamental distrust that many Americans have in their own government.</description>
     </item>
     
     <item>
@@ -227,7 +227,7 @@ First, if this is your first time here or you otherwise have not read my other a
       
       <guid>https://jasonroelofs.com/articles/2017/03/01/evil-and-sin/</guid>
       <description>The greatest trick the Devil ever pulled was convincing the world he didn&amp;rsquo;t exist.
- The Usual Suspects   And so we come to what&amp;rsquo;s probably the most difficult discussion for any Christian, but at the same time the most important aspect of understanding Christianity and its beliefs. I started with an introduction and list of the core rules of Christianity in What is Christianity and expanded on the consequences of these beliefs and rules in What is a Christian, but to really provide a solid base for understanding Christianity, we need to tackle two oft-asked and difficult questions:</description>
+The Usual Suspects And so we come to what&amp;rsquo;s probably the most difficult discussion for any Christian, but at the same time the most important aspect of understanding Christianity and its beliefs. I started with an introduction and list of the core rules of Christianity in What is Christianity and expanded on the consequences of these beliefs and rules in What is a Christian, but to really provide a solid base for understanding Christianity, we need to tackle two oft-asked and difficult questions:</description>
     </item>
     
     <item>
@@ -237,7 +237,7 @@ First, if this is your first time here or you otherwise have not read my other a
       
       <guid>https://jasonroelofs.com/articles/2017/02/13/a-christian/</guid>
       <description>“The most important [commandment],” answered Jesus, “is this: ‘Hear, O Israel: The Lord our God, the Lord is one. Love the Lord your God with all your heart and with all your soul and with all your mind and with all your strength.’ The second is this: ‘Love your neighbor as yourself.’ There is no commandment greater than these.”
- Mark 12:29-31   A Christian is one who, having received from God grace, forgiveness, and the promise of eternal life after death, strives to embody the same principles to all people regardless of creed, religion, background, race, or actions.</description>
+Mark 12:29-31 A Christian is one who, having received from God grace, forgiveness, and the promise of eternal life after death, strives to embody the same principles to all people regardless of creed, religion, background, race, or actions.</description>
     </item>
     
     <item>
@@ -247,7 +247,7 @@ First, if this is your first time here or you otherwise have not read my other a
       
       <guid>https://jasonroelofs.com/articles/2017/01/26/christianity/</guid>
       <description>“I like your Christ, I do not like your Christians. Your Christians are so unlike your Christ.” - Mahatma Ghandi
- I&amp;rsquo;m beginning here a series of posts that have been weighing on my heart for a while now. With the election of Donald Trump to the Presidency of the United States, helped in no small part by the Evangelical Christians of this country, I can no longer stay silent.</description>
+I&amp;rsquo;m beginning here a series of posts that have been weighing on my heart for a while now. With the election of Donald Trump to the Presidency of the United States, helped in no small part by the Evangelical Christians of this country, I can no longer stay silent. The public face of Christianity in this country today has fallen a long way from the roots of our belief, and I&amp;rsquo;ve met numerous Christians who have either forgotten or are otherwise unable to answer the question: &amp;ldquo;What is Christianity?</description>
     </item>
     
     <item>
@@ -412,7 +412,7 @@ The resulting implementation can be seen in app/repositories/active_record_repo.
       
       <guid>https://jasonroelofs.com/articles/2012/10/01/naming-is-everything/</guid>
       <description>I would like to start this off by recommending all developers who care about building readable, well designed code go get a copy of Uncle Bob&amp;rsquo;s Clean Code. This book is a treasure trove of examples on refactoring and renaming to make cleaner code.
- I&amp;rsquo;ve come to realize that there is nothing more important to crafting good, well designed code than choosing good names. Software could be exquisitely designed, with multiple levels of tests, and a beautiful web of clean, decoupled objects and services but all that work will be for naught if another developer can&amp;rsquo;t read and understand the resulting code.</description>
+I&amp;rsquo;ve come to realize that there is nothing more important to crafting good, well designed code than choosing good names. Software could be exquisitely designed, with multiple levels of tests, and a beautiful web of clean, decoupled objects and services but all that work will be for naught if another developer can&amp;rsquo;t read and understand the resulting code.</description>
     </item>
     
     <item>
@@ -458,7 +458,7 @@ It&amp;rsquo;s well known that starting a project can often be the most difficul
       <pubDate>Mon, 12 Mar 2012 12:00:00 -0500</pubDate>
       
       <guid>https://jasonroelofs.com/articles/2012/03/12/manage-and-monitor-reque-with-upstart-an-monit/</guid>
-      <description>This post is out of date. See my latest: Managing Resque with Upstart.   Resque, the unix-y process and child based background worker library from Github, is a joy to use. It&#39;s simple to set up and to integrate into your code, only requiring Redis for the queue, and runs through a single rake task from the command line. It really couldn&#39;t be easier for how scalable and robust the library is.</description>
+      <description>This post is out of date. See my latest: Managing Resque with Upstart. Resque, the unix-y process and child based background worker library from Github, is a joy to use. It&#39;s simple to set up and to integrate into your code, only requiring Redis for the queue, and runs through a single rake task from the command line. It really couldn&#39;t be easier for how scalable and robust the library is.</description>
     </item>
     
   </channel>

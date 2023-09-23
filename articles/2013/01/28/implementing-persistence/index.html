@@ -3,7 +3,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.92.0" />
+  <meta name="generator" content="Hugo 0.118.2">
   <link href="https://fonts.googleapis.com/css?family=Staatliches|Open+Sans&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="https://jasonroelofs.com/css/style.css">
@@ -39,15 +39,15 @@
 <h4 id="associations">Associations</h4>
 <p>When working with in-memory objects, it&rsquo;s very easy to write code that expects objects and their associations to just exist. When I updated the app to serialize to a real database, these associations completely broke. Guilds no longer had their list of Raids, nor Users their list of Characters, for example. The last thing I wanted to do was build a half-baked version of ActiveRecord, so the quickest thing I could get working was to eagerly load every assocation on the requested object. This is fine for small sets of objects, but it can&rsquo;t possibly scale and is not easily maintainable.</p>
 <p>Another solution I considered would require a redesign of most of the domain models to work more like ActiveRecord, where models would be able to query for their associations as they needed them, something like the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Guild</span>
-  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">raids</span>
-    <span style="color:#66d9ef">Repository</span><span style="color:#f92672">.</span>for(<span style="color:#66d9ef">Raid</span>)<span style="color:#f92672">.</span>find_all_by_guild(self)
-  <span style="color:#66d9ef">end</span>
-
-  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">save</span>
-    <span style="color:#66d9ef">Repository</span><span style="color:#f92672">.</span>for(<span style="color:#66d9ef">Guild</span>)<span style="color:#f92672">.</span>save(self)
-  <span style="color:#66d9ef">end</span>
-<span style="color:#66d9ef">end</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Guild</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">raids</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">Repository</span><span style="color:#f92672">.</span>for(<span style="color:#66d9ef">Raid</span>)<span style="color:#f92672">.</span>find_all_by_guild(self)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">save</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">Repository</span><span style="color:#f92672">.</span>for(<span style="color:#66d9ef">Guild</span>)<span style="color:#f92672">.</span>save(self)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span></span></span></code></pre></div>
 <p>But even with this, it&rsquo;s very easy to create data bugs related to memoization, or to feel you still have no real control over the queries an application is making for optimization purposes. Even so, there are further issues with this pattern.</p>
 <h4 id="the-empty-state">The Empty State</h4>
 <p>As I worked on getting the acceptance tests running under ActiveRecord, I quickly realized that I had completely forgotten to implement raidit&rsquo;s Empty State. As in-memory data disappears on server reloads, I had added bootstrap data in an initializer to give me a good base state to play with. This hid the fact that the site broke completely for a new user with no characters and no guild. The simplicity of raidit meant this was easy enough to fix (<a href="https://github.com/jasonroelofs/raidit/commit/7303934a7945af01c99430fe0a3faeb92a15d27c">7303934a</a>  and <a href="https://github.com/jasonroelofs/raidit/commit/188c48c5d512da2bc167cc02f0a777f147eaa6c4">188c48c5</a>) but this could be substantially harder as an application gets more complex.</p>
@@ -57,17 +57,17 @@
 <p>This very quickly became Not Fun and is the reason it took me so long to finish up raidit and get this post written. A good lesson I&rsquo;ve tried to follow throughout my development career is that if some code or feature request fills me with dread, that probably means there&rsquo;s a fundamental issue with the design of the code or with the current development practice(s). Functionality should always be fun to add to an application. The Repository pattern, as I&rsquo;ve implemented in raidit, removed a lot of that fun.</p>
 <p>So would I recommend others follow this pattern? No, not as I&rsquo;ve done it here. There may be ways, and there are probably applications that would work well with this pattern, but I would urge caution not to build in abstractions just to have them. So what about preventing another Typical Rails App? I propose the following development suggestions.</p>
 <p>Don&rsquo;t leak persistence details outside of ActiveRecord (with the caveat that column names ending up in the view isn&rsquo;t in itself bad). For example, any code that chains scopes and/or ARel methods should refactored behind an Intention-Revealing Name <!-- raw HTML omitted --><a href="#footnote">1</a><!-- raw HTML omitted --> (an instance method, class method, or object).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#75715e"># Change this</span>
-current_guild<span style="color:#f92672">.</span>raids<span style="color:#f92672">.</span>order_by(<span style="color:#e6db74">:created_at</span>)<span style="color:#f92672">.</span>limit(<span style="color:#ae81ff">10</span>)
-
-<span style="color:#75715e"># To this</span>
-current_guild<span style="color:#f92672">.</span>recent_raids
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Guild</span> <span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">ActiveRecord</span><span style="color:#f92672">::</span><span style="color:#66d9ef">Base</span>
-  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">recent_raids</span>(count <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>)
-    self<span style="color:#f92672">.</span>raids<span style="color:#f92672">.</span>order_by(<span style="color:#e6db74">:created_at</span>)<span style="color:#f92672">.</span>limit(count)
-  <span style="color:#66d9ef">end</span>
-<span style="color:#66d9ef">end</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#75715e"># Change this</span>
+</span></span><span style="display:flex;"><span>current_guild<span style="color:#f92672">.</span>raids<span style="color:#f92672">.</span>order_by(<span style="color:#e6db74">:created_at</span>)<span style="color:#f92672">.</span>limit(<span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># To this</span>
+</span></span><span style="display:flex;"><span>current_guild<span style="color:#f92672">.</span>recent_raids
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Guild</span> <span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">ActiveRecord</span><span style="color:#f92672">::</span><span style="color:#66d9ef">Base</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">recent_raids</span>(count <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>raids<span style="color:#f92672">.</span>order_by(<span style="color:#e6db74">:created_at</span>)<span style="color:#f92672">.</span>limit(count)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span></span></span></code></pre></div>
 <p>You can still have fast tests as long as you aren&rsquo;t putting data in the database for every test. Have a suite of tests that do talk to the database to ensure that side of the app is working, then use bogus objects or mocks elsewhere. This pattern will only work if you also have an Acceptance test suite that tests the full stack, taking the role of &ldquo;Contract Tests&rdquo;<!-- raw HTML omitted --><a href="#footnote">2</a><!-- raw HTML omitted -->. Mocked tests without tests that prove that both sides of the mock are correct will leave you with a brittle test suite that hides bugs in how your objects communicate.</p>
 <p>In explicitly taking the other extreme from ActiveRecord coupling everywhere, I&rsquo;ve learned a lot more about what not to do and how to find a good middle ground when dealing with serialization / persistence. Use objects and/or methods to hide implementation details (like ActiveRecord scopes and ARel). This gives you names which provide meaning and intent in your code and give you the hooks to start building fast tests and improve your overall design.</p>
 <p>I&rsquo;ll have one more post in this series that takes the development rules I set for myself in <a href="/articles/2012/06/05/rules-for-rails-app-development">Rules for Rails App Development</a> and lists out which ones are good, which ones didn&rsquo;t work out, and overall thoughts on this experiment.</p>

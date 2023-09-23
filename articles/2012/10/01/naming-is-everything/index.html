@@ -3,7 +3,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.92.0" />
+  <meta name="generator" content="Hugo 0.118.2">
   <link href="https://fonts.googleapis.com/css?family=Staatliches|Open+Sans&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="https://jasonroelofs.com/css/style.css">
@@ -46,15 +46,15 @@
 </blockquote>
 <p>Choosing good names is hard. <em>Really</em> hard, but anyone who said software development was easy was lying. Oh yes giving directions to a computer is rather simple, but as I said previously, that&rsquo;s a small part of what we do. As many prominent developers have been saying lately, Software is a Social Art. We are constantly learning from each other, sharing tips and tricks, yet we then turn around and drop turds of code on each other. Software is written once, maybe modified a few times, but read many times more, by people we do and do not know, and every step of our development should live and breath this fact.</p>
 <p>Even the simplest methods are exponentially more understandable with good naming. Take a copy method, which is easier to read?</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">copy</span>(x, y)
-  x<span style="color:#f92672">.</span>member1 <span style="color:#f92672">=</span> y<span style="color:#f92672">.</span>member1
-  x<span style="color:#f92672">.</span>member2 <span style="color:#f92672">=</span> y<span style="color:#f92672">.</span>member2
-<span style="color:#66d9ef">end</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">copy</span>(x, y)
+</span></span><span style="display:flex;"><span>  x<span style="color:#f92672">.</span>member1 <span style="color:#f92672">=</span> y<span style="color:#f92672">.</span>member1
+</span></span><span style="display:flex;"><span>  x<span style="color:#f92672">.</span>member2 <span style="color:#f92672">=</span> y<span style="color:#f92672">.</span>member2
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span></span></span></code></pre></div>
 <p>vs</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">copy</span>(from, to)
-  to<span style="color:#f92672">.</span>member1 <span style="color:#f92672">=</span> from<span style="color:#f92672">.</span>member1
-  to<span style="color:#f92672">.</span>member2 <span style="color:#f92672">=</span> from<span style="color:#f92672">.</span>member2
-<span style="color:#66d9ef">end</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">copy</span>(from, to)
+</span></span><span style="display:flex;"><span>  to<span style="color:#f92672">.</span>member1 <span style="color:#f92672">=</span> from<span style="color:#f92672">.</span>member1
+</span></span><span style="display:flex;"><span>  to<span style="color:#f92672">.</span>member2 <span style="color:#f92672">=</span> from<span style="color:#f92672">.</span>member2
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span></span></span></code></pre></div>
 <p>A simple set of names makes the method immediately and completely descriptive without even looking at the implementation. It&rsquo;s copying data from the object at <em>from</em> to the object at <em>to</em>. With the nondescript <em>x</em> and <em>y</em> parameters we have to look at the implementation to know which one is copying to and from where. Taking the care, the few seconds or few minutes to write out the variables in full, to name your objects descriptively, to make sure the code is readable, will pay off in spades. Spending ten minutes now will save the next developer potentially hours of maintenance work.</p>
 <p>To help with this understanding I&rsquo;ve pulled together a number of examples from <a href="https://github.com/jasonroelofs/raidit">raidit</a> on good naming, some bad naming, and some refactoring I&rsquo;ve done to get to better naming.</p>
 <h4 id="parameters-and-variables">Parameters and Variables</h4>
@@ -67,27 +67,27 @@
 <p>As I mentioned in <a href="/2012/06/05/rules-for-rails-app-development">Part 2</a> of this series, as well as in my post at the <a href="http://collectiveidea.com/blog/archives/2012/06/28/wheres-your-business-logic/">Collective Idea blog</a>, I&rsquo;ve been defaulting my Interactor objects to have a <em>#run</em> instance method which contains the main chunk of functionality for that action. Now I was at the time aware that <em>run</em> is a not a good name and as I have built out the functionality in raidit I&rsquo;ve been finding better names for these methods. I&rsquo;ve also come to understand and appreciate that <a href="http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html">Dude, not everything is an object</a> and have been changing some simpler Interactors to be static methods with names that are very explicit on what they do and/or return.</p>
 <h4 id="constructors">Constructors</h4>
 <p>Now this may come across as an odd section given my focus on Ruby, but a constructor is nothing more than a method that builds and returns a new object. In Ruby&rsquo;s case, any static method that returns an instance of the class said method resides in can be considered a constructor. For example, take the following class with a few named constructors:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ListMessages</span>
-
-  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">self</span><span style="color:#f92672">.</span><span style="color:#a6e22e">received_by</span>(user)
-    <span style="color:#66d9ef">new</span>(<span style="color:#e6db74">:received</span>, user)
-  <span style="color:#66d9ef">end</span>
-
-  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">self</span><span style="color:#f92672">.</span><span style="color:#a6e22e">sent_to</span>(user)
-    <span style="color:#66d9ef">new</span>(<span style="color:#e6db74">:sent</span>, user)
-  <span style="color:#66d9ef">end</span>
-
-  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">initialize</span>(sent_or_received, user)
-    @messages <span style="color:#f92672">=</span> <span style="color:#66d9ef">Message</span><span style="color:#f92672">.</span>send(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>sent_or_received<span style="color:#e6db74">}</span><span style="color:#e6db74">_by&#34;</span>, user)
-  <span style="color:#66d9ef">end</span>
-
-<span style="color:#66d9ef">end</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ListMessages</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">self</span><span style="color:#f92672">.</span><span style="color:#a6e22e">received_by</span>(user)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">new</span>(<span style="color:#e6db74">:received</span>, user)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">self</span><span style="color:#f92672">.</span><span style="color:#a6e22e">sent_to</span>(user)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">new</span>(<span style="color:#e6db74">:sent</span>, user)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">initialize</span>(sent_or_received, user)
+</span></span><span style="display:flex;"><span>    @messages <span style="color:#f92672">=</span> <span style="color:#66d9ef">Message</span><span style="color:#f92672">.</span>send(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>sent_or_received<span style="color:#e6db74">}</span><span style="color:#e6db74">_by&#34;</span>, user)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span></span></span></code></pre></div>
 <p>Then compare the code to run them</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">messages <span style="color:#f92672">=</span> <span style="color:#66d9ef">ListMessages</span><span style="color:#f92672">.</span>sent_to(user)
-
-<span style="color:#75715e"># vs</span>
-
-messages <span style="color:#f92672">=</span> <span style="color:#66d9ef">ListMessages</span><span style="color:#f92672">.</span>new(<span style="color:#e6db74">:sent</span>, user)</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>messages <span style="color:#f92672">=</span> <span style="color:#66d9ef">ListMessages</span><span style="color:#f92672">.</span>sent_to(user)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># vs</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>messages <span style="color:#f92672">=</span> <span style="color:#66d9ef">ListMessages</span><span style="color:#f92672">.</span>new(<span style="color:#e6db74">:sent</span>, user)</span></span></code></pre></div>
 <p>The differences are subtle but noticable. The first one reads more like a sentance, a statement of intent, while the second requires you to understand that you need to pass in a symbol stating which type of Message you want for the given user. When code tells you it&rsquo;s intent without getting you bogged down in the implementation details, then you know you have good naming and are progressing towards better overall design.</p>
 <h4 id="behavioral-naming-and-consistency">Behavioral Naming and Consistency</h4>
 <p>Once you&rsquo;re in the habit of spending time picking good names, and figuring out how to write readable code, you&rsquo;ll find yourself in situations where the names you&rsquo;ve chosen are fine names in and of themselves but there&rsquo;s something still not right about them. You may be running into definition and naming inconsistencies. One of the less immediately obvious aspects of well designed, well named code is that the names are consistent and follow a convention across the application. If you have Create and Add that do the same thing, you should pick one and refactor the rest. In raidit, I have the following conventions for my Interactors:</p>

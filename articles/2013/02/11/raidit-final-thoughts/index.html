@@ -3,7 +3,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.92.0" />
+  <meta name="generator" content="Hugo 0.118.2">
   <link href="https://fonts.googleapis.com/css?family=Staatliches|Open+Sans&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="https://jasonroelofs.com/css/style.css">
@@ -48,33 +48,33 @@
 <h2 id="mock-dont-mock-testing-is-hard">Mock? Don&rsquo;t mock? Testing is hard</h2>
 <p>Mocks and bogus objects are a great way to ensure that tests are isolating the code in question. One of the biggest pain points of most Rails applications is testing and the misuse or non-use of test isolation. In many cases, every test in the suite tests the entire stack, requiring data in the database and calling code that ends up modifying the database. This is the main cause of slow test suites, and fixing this on established applications is very difficult. Mocks can help out tremendously here but if overused they can also put the application in a worse situation: where tests pass but the application itself doesn&rsquo;t work.</p>
 <p>One of the easier mistakes to make when working with mocks is mocking implementation instead of behavior. I&rsquo;ve seen a lot of code that makes this mistake, and it is frustrating to work with. One small change to the code, without changing behavior, breaks multiple tests and updating those tests is tedious and unproductive. I&rsquo;ll give an example of this kind of mocking, and how to fix it. Take the following method and test:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">some_action</span>
-  @models <span style="color:#f92672">=</span> <span style="color:#66d9ef">MyModel</span><span style="color:#f92672">.</span>where(<span style="color:#e6db74">:active</span> <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">true</span>)<span style="color:#f92672">.</span>order(<span style="color:#e6db74">:name</span>)<span style="color:#f92672">.</span>limit(<span style="color:#ae81ff">10</span>)
-<span style="color:#66d9ef">end</span>
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_some_action</span>
-  where_mock <span style="color:#f92672">=</span> mock
-  order_mock <span style="color:#f92672">=</span> mock
-  limit_mock <span style="color:#f92672">=</span> mock
-
-  where_mock<span style="color:#f92672">.</span>expects(<span style="color:#e6db74">:order</span>)<span style="color:#f92672">.</span>with(<span style="color:#e6db74">:name</span>)<span style="color:#f92672">.</span>returns(order_mock)
-  order_mock<span style="color:#f92672">.</span>expects(<span style="color:#e6db74">:limit</span>)<span style="color:#f92672">.</span>with(<span style="color:#ae81ff">10</span>)<span style="color:#f92672">.</span>returns(limit_mock)
-  <span style="color:#66d9ef">MyModel</span><span style="color:#f92672">.</span>expects(<span style="color:#e6db74">:where</span>)<span style="color:#f92672">.</span>with(<span style="color:#e6db74">:active</span> <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">true</span>)<span style="color:#f92672">.</span>returns(where_mock)
-
-  get <span style="color:#e6db74">:some_action</span>
-
-  assigns(<span style="color:#e6db74">:models</span>)<span style="color:#f92672">.</span>should <span style="color:#f92672">==</span> limit_mock
-<span style="color:#66d9ef">end</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">some_action</span>
+</span></span><span style="display:flex;"><span>  @models <span style="color:#f92672">=</span> <span style="color:#66d9ef">MyModel</span><span style="color:#f92672">.</span>where(<span style="color:#e6db74">:active</span> <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">true</span>)<span style="color:#f92672">.</span>order(<span style="color:#e6db74">:name</span>)<span style="color:#f92672">.</span>limit(<span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_some_action</span>
+</span></span><span style="display:flex;"><span>  where_mock <span style="color:#f92672">=</span> mock
+</span></span><span style="display:flex;"><span>  order_mock <span style="color:#f92672">=</span> mock
+</span></span><span style="display:flex;"><span>  limit_mock <span style="color:#f92672">=</span> mock
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  where_mock<span style="color:#f92672">.</span>expects(<span style="color:#e6db74">:order</span>)<span style="color:#f92672">.</span>with(<span style="color:#e6db74">:name</span>)<span style="color:#f92672">.</span>returns(order_mock)
+</span></span><span style="display:flex;"><span>  order_mock<span style="color:#f92672">.</span>expects(<span style="color:#e6db74">:limit</span>)<span style="color:#f92672">.</span>with(<span style="color:#ae81ff">10</span>)<span style="color:#f92672">.</span>returns(limit_mock)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">MyModel</span><span style="color:#f92672">.</span>expects(<span style="color:#e6db74">:where</span>)<span style="color:#f92672">.</span>with(<span style="color:#e6db74">:active</span> <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">true</span>)<span style="color:#f92672">.</span>returns(where_mock)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  get <span style="color:#e6db74">:some_action</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  assigns(<span style="color:#e6db74">:models</span>)<span style="color:#f92672">.</span>should <span style="color:#f92672">==</span> limit_mock
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span></span></span></code></pre></div>
 <p>There is nothing here to show intent. This only tests implementation, any single change breaks the entire test even though the behavior may not change at all (for example, swapping the order and limit calls), and the test is very hard to read. This code and test is easily fixed up while still using mocks and staying away from database objects by using an Intent-Revealing Name (nothing is more important than <a href="/articles/2012/10/01/naming-is-everything">good naming</a>). Simply refactor that scope mess into it&rsquo;s own method and mock that one method.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">some_action</span>
-  @models <span style="color:#f92672">=</span> <span style="color:#66d9ef">MyModel</span><span style="color:#f92672">.</span>active_sorted_by_name(<span style="color:#ae81ff">10</span>)
-<span style="color:#66d9ef">end</span>
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_some_action</span>
-  <span style="color:#66d9ef">MyModel</span><span style="color:#f92672">.</span>expects(<span style="color:#e6db74">:active_sorted_by_name</span>)<span style="color:#f92672">.</span>with(<span style="color:#ae81ff">10</span>)<span style="color:#f92672">.</span>returns(<span style="color:#f92672">[]</span>)
-  get <span style="color:#e6db74">:some_action</span>
-  assigns(<span style="color:#e6db74">:models</span>)<span style="color:#f92672">.</span>should <span style="color:#f92672">==</span> <span style="color:#f92672">[]</span>
-<span style="color:#66d9ef">end</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">some_action</span>
+</span></span><span style="display:flex;"><span>  @models <span style="color:#f92672">=</span> <span style="color:#66d9ef">MyModel</span><span style="color:#f92672">.</span>active_sorted_by_name(<span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_some_action</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">MyModel</span><span style="color:#f92672">.</span>expects(<span style="color:#e6db74">:active_sorted_by_name</span>)<span style="color:#f92672">.</span>with(<span style="color:#ae81ff">10</span>)<span style="color:#f92672">.</span>returns(<span style="color:#f92672">[]</span>)
+</span></span><span style="display:flex;"><span>  get <span style="color:#e6db74">:some_action</span>
+</span></span><span style="display:flex;"><span>  assigns(<span style="color:#e6db74">:models</span>)<span style="color:#f92672">.</span>should <span style="color:#f92672">==</span> <span style="color:#f92672">[]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span></span></span></code></pre></div>
 <p>Now the code shows it&rsquo;s intent, the tests show and prove behavior, and any changes made to <code>active_sorted_by_name</code> won&rsquo;t cause the test to fail. Testing the behavior of this new method can then be done with actual database objects and in one place only, minimizing the speed impact on the full suite.</p>
 <p>There is one very important caveat: this pattern can only be used safely if you also have an end-to-end acceptance suite. I believe this is so important that I&rsquo;m going to say it again: <strong>If you are going to use mocks in tests you must have a separate acceptance-level test suite!</strong> If there are no tests to prove that objects to actually communicate as the mocks say they do, then the mocked tests, in many cases, are actually a hinderance, passing when the application itself fails.</p>
 <p>In raidit I made sure to have a full end-to-end <a href="https://github.com/jasonroelofs/raidit/tree/master/features">Cucumber test suite</a> to ensure the mocks in my <a href="https://github.com/jasonroelofs/raidit/tree/master/test/controllers">controller tests</a> were correct. I did still follow my original plan of not mocking what I own; considering Rails Controllers outside of &ldquo;ownership&rdquo; of the application. None of the domain-level unit tests use mocking, and with in-memory objects that worked really well, though please see my <a href="/articles/2013/01/28/implementing-persistence">previous post</a> for the caveats of this approach. I&rsquo;m no longer in the &ldquo;mocks are bad!&rdquo; crowd but I still am careful to make sure I&rsquo;m using them correctly and to have another test suite to keep my mock use in check.</p>
