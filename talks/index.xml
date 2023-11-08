@@ -6,17 +6,16 @@
     <description>Recent content in Talks on Jason Roelofs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Nov 2019 15:10:17 -0400</lastBuildDate><atom:link href="https://jasonroelofs.com/talks/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Nov 2019 15:10:17 -0400</lastBuildDate>
+    <atom:link href="https://jasonroelofs.com/talks/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Designing for Production: Keeping Ops Happy</title>
       <link>https://jasonroelofs.com/talks/keeping-ops-happy/</link>
       <pubDate>Fri, 01 Nov 2019 15:10:17 -0400</pubDate>
-      
       <guid>https://jasonroelofs.com/talks/keeping-ops-happy/</guid>
       <description>I gave a talk at Mountain West Ruby Conf entitled &amp;ldquo;Keep Ops Happy: Designing for Production&amp;rdquo;, a discussion of tips, tricks, and suggestions for how to design an application in a way that makes it easy to deploy and maintain in a production environment.
 The slides:
 And the video:</description>
     </item>
-    
   </channel>
 </rss>
