@@ -4,7 +4,7 @@
     <title>Projects on Jason Roelofs</title>
     <link>https://jasonroelofs.com/projects/</link>
     <description>Recent content in Projects on Jason Roelofs</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 01 Nov 2019 14:56:19 -0400</lastBuildDate>
     <atom:link href="https://jasonroelofs.com/projects/index.xml" rel="self" type="application/rss+xml" />
@@ -13,42 +13,42 @@
       <link>https://jasonroelofs.com/projects/dotfiles/</link>
       <pubDate>Fri, 01 Nov 2019 13:54:20 -0400</pubDate>
       <guid>https://jasonroelofs.com/projects/dotfiles/</guid>
-      <description>My development environment! Contains configurations for bash, my prompt, git, and vim.</description>
+      <description>&lt;p&gt;My development environment! Contains configurations for bash, my prompt, git, and vim.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Rice</title>
       <link>https://jasonroelofs.com/projects/rice/</link>
       <pubDate>Fri, 01 Nov 2019 14:24:26 -0400</pubDate>
       <guid>https://jasonroelofs.com/projects/rice/</guid>
-      <description>Ruby Interface for C++ Extensions. Expose your C++ classes to Ruby through a simple DSL.</description>
+      <description>&lt;p&gt;Ruby Interface for C++ Extensions. Expose your C++ classes to Ruby through a simple DSL.&lt;/p&gt;</description>
     </item>
     <item>
       <title>rbgccxml</title>
       <link>https://jasonroelofs.com/projects/rbgccxml/</link>
       <pubDate>Fri, 01 Nov 2019 14:53:24 -0400</pubDate>
       <guid>https://jasonroelofs.com/projects/rbgccxml/</guid>
-      <description>Ruby library to parse and query C++ header files using CastXML (previously named GCCXML).</description>
+      <description>&lt;p&gt;Ruby library to parse and query C++ header files using &lt;a href=&#34;https://github.com/CastXML/CastXML&#34;&gt;CastXML&lt;/a&gt; (previously named GCCXML).&lt;/p&gt;</description>
     </item>
     <item>
       <title>rb&#43;&#43;</title>
       <link>https://jasonroelofs.com/projects/rbplusplus/</link>
       <pubDate>Fri, 01 Nov 2019 14:52:15 -0400</pubDate>
       <guid>https://jasonroelofs.com/projects/rbplusplus/</guid>
-      <description>Combines rbgccxml and rice to automatically generate Ruby extensions from C++ code.</description>
+      <description>&lt;p&gt;Combines rbgccxml and rice to automatically generate Ruby extensions from C++ code.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raidit</title>
       <link>https://jasonroelofs.com/projects/raidit/</link>
       <pubDate>Fri, 01 Nov 2019 14:56:19 -0400</pubDate>
       <guid>https://jasonroelofs.com/projects/raidit/</guid>
-      <description>Building an MMO focused calendar tool for scheduling player, guild, or server events as an experiment in applying different patterns to Rails web-app development. See the Designing a Rails Application series for the accompaning articles.</description>
+      <description>&lt;p&gt;Building an MMO focused calendar tool for scheduling player, guild, or server events as an experiment in applying different patterns to Rails web-app development. See the &lt;a href=&#34;https://jasonroelofs.com/series/designing-a-rails-application/&#34;&gt;Designing a Rails Application&lt;/a&gt; series for the accompaning articles.&lt;/p&gt;</description>
     </item>
     <item>
       <title>SimpleAWS</title>
       <link>https://jasonroelofs.com/projects/simple_aws/</link>
       <pubDate>Fri, 01 Nov 2019 14:34:59 -0400</pubDate>
       <guid>https://jasonroelofs.com/projects/simple_aws/</guid>
-      <description>Deprecated Small, simple, and forward compatible AWS communication library.</description>
+      <description>&lt;p&gt;&lt;strong&gt;Deprecated&lt;/strong&gt; Small, simple, and forward compatible AWS communication library.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

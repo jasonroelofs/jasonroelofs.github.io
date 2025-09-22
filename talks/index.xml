@@ -4,7 +4,7 @@
     <title>Talks on Jason Roelofs</title>
     <link>https://jasonroelofs.com/talks/</link>
     <description>Recent content in Talks on Jason Roelofs</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 01 Nov 2019 15:10:17 -0400</lastBuildDate>
     <atom:link href="https://jasonroelofs.com/talks/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>https://jasonroelofs.com/talks/keeping-ops-happy/</link>
       <pubDate>Fri, 01 Nov 2019 15:10:17 -0400</pubDate>
       <guid>https://jasonroelofs.com/talks/keeping-ops-happy/</guid>
-      <description>I gave a talk at Mountain West Ruby Conf entitled &amp;ldquo;Keep Ops Happy: Designing for Production&amp;rdquo;, a discussion of tips, tricks, and suggestions for how to design an application in a way that makes it easy to deploy and maintain in a production environment.&#xA;The slides:&#xA;And the video:</description>
+      <description>&lt;p&gt;I gave a talk at Mountain West Ruby Conf entitled &amp;ldquo;Keep Ops Happy: Designing for Production&amp;rdquo;, a discussion of tips, tricks, and suggestions for how to design an application in a way that makes it easy to deploy and maintain in a production environment.&lt;/p&gt;&#xA;&lt;p&gt;The slides:&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;And the video:&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;</description>
     </item>
   </channel>
 </rss>
